@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -102,5 +106,8 @@
       }
     }
   },
-  "defaultProject": "pnm-frontend"
+  "defaultProject": "pnm-frontend",
+  "cli": {
+    "analytics": "091b33ee-a7c9-4062-bcde-dffea179c5e5"
+  }
 }

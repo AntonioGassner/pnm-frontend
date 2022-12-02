@@ -1,0 +1,1096 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/provincia:
+    put:
+      tags:
+      - provincia-rest-adapter
+      operationId: updateProvincia
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvinciaUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProvinciaDTO'
+    post:
+      tags:
+      - provincia-rest-adapter
+      operationId: createProvincia
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvinciaCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProvinciaDTO'
+  /api/produttore:
+    put:
+      tags:
+      - produttore-rest-adapter
+      operationId: updateProduttore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProduttoreUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProduttoreDTO'
+    post:
+      tags:
+      - produttore-rest-adapter
+      operationId: createProduttore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProduttoreCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProduttoreDTO'
+  /api/comune:
+    put:
+      tags:
+      - comune-rest-adapter
+      operationId: updateComune
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComuneUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ComuneDTO'
+    post:
+      tags:
+      - comune-rest-adapter
+      operationId: createComune
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComuneCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ComuneDTO'
+  /api/categoria:
+    put:
+      tags:
+      - categoria-rest-adapter
+      operationId: updateCategoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CategoriaDTO'
+    post:
+      tags:
+      - categoria-rest-adapter
+      operationId: createCategoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CategoriaDTO'
+  /api/azienda:
+    put:
+      tags:
+      - azienda-rest-adapter
+      operationId: updateAzienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AziendaUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AziendaDTO'
+    post:
+      tags:
+      - azienda-rest-adapter
+      operationId: createAzienda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AziendaCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AziendaDTO'
+  /api/azienda-categoria:
+    put:
+      tags:
+      - azienda-categoria-rest-adapter
+      operationId: updateAziendaCategoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AziendaCategoriaUpdateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AziendaCategoriaDTO'
+    post:
+      tags:
+      - azienda-categoria-rest-adapter
+      operationId: createAziendaCategoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AziendaCategoriaCreateDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AziendaCategoriaDTO'
+  /api/provincia/ricerca:
+    get:
+      tags:
+      - provincia-rest-adapter
+      operationId: searchProvincia
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProvinciaCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageProvinciaDTO'
+  /api/produttore/ricerca:
+    get:
+      tags:
+      - produttore-rest-adapter
+      operationId: searchProduttore
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProduttoreCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageProduttoreDTO'
+  /api/comune/ricerca:
+    get:
+      tags:
+      - comune-rest-adapter
+      operationId: searchComune
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ComuneCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageComuneDTO'
+  /api/categoria/ricerca:
+    get:
+      tags:
+      - categoria-rest-adapter
+      operationId: searchCategoria
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/CategoriaCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageCategoriaDTO'
+  /api/azienda/ricerca:
+    get:
+      tags:
+      - azienda-rest-adapter
+      operationId: searchAzienda
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/AziendaCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageAziendaDTO'
+  /api/azienda-categoria/ricerca:
+    get:
+      tags:
+      - azienda-categoria-rest-adapter
+      operationId: searchAziendaCategoria
+      parameters:
+      - name: criteria
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/AziendaCategoriaCriteria'
+      - name: pageRequest
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageAziendaCategoriaDTO'
+  /api/provincia/{id}:
+    delete:
+      tags:
+      - provincia-rest-adapter
+      operationId: deleteProvincia
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/produttore/{id}:
+    delete:
+      tags:
+      - produttore-rest-adapter
+      operationId: deleteProduttore
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/comune/{id}:
+    delete:
+      tags:
+      - comune-rest-adapter
+      operationId: deleteComune
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/categoria/{id}:
+    delete:
+      tags:
+      - categoria-rest-adapter
+      operationId: deleteCategoria
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/azienda/{id}:
+    delete:
+      tags:
+      - azienda-rest-adapter
+      operationId: deleteAzienda
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /api/azienda-categoria/{id}:
+    delete:
+      tags:
+      - azienda-categoria-rest-adapter
+      operationId: deleteAziendaCategoria
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    ProvinciaUpdateDTO:
+      required:
+      - nome
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+    ProvinciaDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+    ProduttoreUpdateDTO:
+      required:
+      - codiceFiscale
+      - cognome
+      - email
+      - nome
+      - numeroPrivato
+      - partitaIva
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        cognome:
+          type: string
+        codiceFiscale:
+          type: string
+        numeroPrivato:
+          type: string
+        email:
+          type: string
+        partitaIva:
+          type: string
+        tesseramentoAttivo:
+          type: boolean
+    ProduttoreDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        cognome:
+          type: string
+        codiceFiscale:
+          type: string
+        numeroPrivato:
+          type: string
+        email:
+          type: string
+        partitaIva:
+          type: string
+        tesseramentoAttivo:
+          type: boolean
+    ComuneUpdateDTO:
+      required:
+      - nome
+      - provincia
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        provincia:
+          type: string
+          format: uuid
+    ComuneDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        provincia:
+          $ref: '#/components/schemas/ProvinciaDTO'
+    CategoriaUpdateDTO:
+      required:
+      - nome
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        descrizione:
+          type: string
+    CategoriaDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        descrizione:
+          type: string
+    AziendaUpdateDTO:
+      required:
+      - comune
+      - email
+      - nome
+      - numeroPubblico
+      - produttore
+      - provincia
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        numeroPubblico:
+          type: string
+        email:
+          type: string
+        produttore:
+          type: string
+          format: uuid
+        comune:
+          type: string
+          format: uuid
+        provincia:
+          type: string
+          format: uuid
+    AziendaDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        nome:
+          type: string
+        numeroPubblico:
+          type: string
+        email:
+          type: string
+        produttore:
+          $ref: '#/components/schemas/ProduttoreDTO'
+        comune:
+          $ref: '#/components/schemas/ComuneDTO'
+        provincia:
+          $ref: '#/components/schemas/ProvinciaDTO'
+    AziendaCategoriaUpdateDTO:
+      required:
+      - azienda
+      - categoria
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        azienda:
+          type: string
+          format: uuid
+        categoria:
+          type: string
+          format: uuid
+    AziendaCategoriaDTO:
+      type: object
+      properties:
+        azienda:
+          $ref: '#/components/schemas/AziendaDTO'
+        categoria:
+          $ref: '#/components/schemas/CategoriaDTO'
+    ProvinciaCreateDTO:
+      required:
+      - nome
+      type: object
+      properties:
+        nome:
+          type: string
+    ProduttoreCreateDTO:
+      required:
+      - codiceFiscale
+      - cognome
+      - email
+      - nome
+      - numeroPrivato
+      - partitaIva
+      type: object
+      properties:
+        nome:
+          type: string
+        cognome:
+          type: string
+        codiceFiscale:
+          type: string
+        numeroPrivato:
+          type: string
+        email:
+          type: string
+        partitaIva:
+          type: string
+        tesseramentoAttivo:
+          type: boolean
+    ComuneCreateDTO:
+      required:
+      - nome
+      - provincia
+      type: object
+      properties:
+        nome:
+          type: string
+        provincia:
+          type: string
+          format: uuid
+    CategoriaCreateDTO:
+      required:
+      - nome
+      type: object
+      properties:
+        nome:
+          type: string
+        descrizione:
+          type: string
+    AziendaCreateDTO:
+      required:
+      - comune
+      - email
+      - nome
+      - numeroPubblico
+      - produttore
+      - provincia
+      type: object
+      properties:
+        nome:
+          type: string
+        numeroPubblico:
+          type: string
+        email:
+          type: string
+        produttore:
+          type: string
+          format: uuid
+        comune:
+          type: string
+          format: uuid
+        provincia:
+          type: string
+          format: uuid
+    AziendaCategoriaCreateDTO:
+      required:
+      - azienda
+      - categoria
+      type: object
+      properties:
+        azienda:
+          type: string
+          format: uuid
+        categoria:
+          type: string
+          format: uuid
+    ProvinciaCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        nome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+    StringFilter:
+      type: object
+      properties:
+        equals:
+          type: string
+        notEquals:
+          type: string
+        specified:
+          type: boolean
+        in:
+          type: array
+          items:
+            type: string
+        notIn:
+          type: array
+          items:
+            type: string
+        contains:
+          type: string
+        doesNotContain:
+          type: string
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    PageProvinciaDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProvinciaDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    PageableObject:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
+    SortObject:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+    ProduttoreCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        nome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+        cognome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+    PageProduttoreDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProduttoreDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    ComuneCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        nome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+        provincia:
+          type: array
+          items:
+            type: string
+            format: uuid
+    PageComuneDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComuneDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    CategoriaCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        nome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+    PageCategoriaDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoriaDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    AziendaCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        nome:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+        produttore:
+          type: array
+          items:
+            type: string
+            format: uuid
+        comune:
+          type: array
+          items:
+            type: string
+            format: uuid
+        provincia:
+          type: array
+          items:
+            type: string
+            format: uuid
+    PageAziendaDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AziendaDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean
+    AziendaCategoriaCriteria:
+      type: object
+      properties:
+        id:
+          type: array
+          items:
+            type: string
+            format: uuid
+        azienda:
+          type: array
+          items:
+            type: string
+            format: uuid
+        categoria:
+          type: array
+          items:
+            type: string
+            format: uuid
+    PageAziendaCategoriaDTO:
+      type: object
+      properties:
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AziendaCategoriaDTO'
+        number:
+          type: integer
+          format: int32
+        sort:
+          $ref: '#/components/schemas/SortObject'
+        first:
+          type: boolean
+        last:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: '#/components/schemas/PageableObject'
+        empty:
+          type: boolean

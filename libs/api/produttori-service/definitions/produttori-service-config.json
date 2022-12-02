@@ -1,0 +1,9 @@
+{
+  "apiModulePrefix": "Produttori",
+  "configurationPrefix": "Produttori",
+  "basePath": "/services/produttoriservice",
+  "fileNaming": "kebab-case",
+  "withInterfaces": false,
+  "providedInRoot": false,
+  "ngVersion": "10.0.0"
+}

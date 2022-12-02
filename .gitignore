@@ -45,3 +45,5 @@ pnpm-lock.yaml
 .DS_Store
 Thumbs.db
 .idea
+.angular
+package-lock.json

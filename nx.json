@@ -1,0 +1,62 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/jest.preset.js"
+      ]
+    }
+  },
+  "workspaceLayout": {
+    "appsDir": "projects",
+    "libsDir": "projects"
+  },
+  "cli": {
+    "analytics": "091b33ee-a7c9-4062-bcde-dffea179c5e5"
+  },
+  "defaultProject": "pnm-frontend",
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  }
+}

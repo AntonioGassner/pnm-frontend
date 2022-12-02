@@ -105,9 +105,5 @@
         }
       }
     }
-  },
-  "defaultProject": "pnm-frontend",
-  "cli": {
-    "analytics": "091b33ee-a7c9-4062-bcde-dffea179c5e5"
   }
 }

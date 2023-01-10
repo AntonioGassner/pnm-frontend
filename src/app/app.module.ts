@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './basic/navbar/navbar.component';
 import { FooterComponent } from './basic/footer/footer.component';
 import { ProduttoriComponent } from './produttori/produttori.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ProduttoriComponent } from './produttori/produttori.component';
   ],
   imports: [
     BrowserModule,
+      FormsModule,
     NgbModule,
     AppRoutingModule,
 

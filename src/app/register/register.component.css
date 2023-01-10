@@ -2,3 +2,6 @@
     width: 90%;
     padding-bottom: 7%;
 }
+input.ng-invalid.ng-touched  {
+    border: 1px solid red;
+}

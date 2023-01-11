@@ -3,54 +3,141 @@
     <main>
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-                <form (ngSubmit)="onSubmit(sf)" #sf="ngForm">
-                    <div id="user-data">
+                <form (ngSubmit)="onSubmit()" #rf="ngForm">
+                    <div id="produttore" ngModelGroup="produttore">
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label for="nome">Nome</label>
                             <input
                                     type="text"
-                                    id="username"
+                                    id="nome"
                                     class="form-control"
                                     ngModel
-                                    name="username"
-                            required
-                            #username="ngModel">
+                                    name="nome"
+                                    required
+                                    #nome="ngModel">
                         </div>
-                        <span class="help-block" *ngIf="!username.valid && username.touched">Please enter a valid Username</span>
+                        <span class="help-block" *ngIf="!nome.valid && nome.touched">Per la registrazione abbiamo bisogno del nome</span>
+                        <div class="form-group">
+                            <label for="cognome">cognome</label>
+                            <input
+                                    type="text"
+                                    id="cognome"
+                                    class="form-control"
+                                    ngModel
+                                    name="cognome"
+                                    required
+                                    #cognome="ngModel">
+                        </div>
+                        <span class="help-block" *ngIf="!cognome.valid && cognome.touched">Per la registrazione abbiamo bisogno del cognome</span>
+
+                        <div class="form-group">
+                            <label for="codiceFiscale">codiceFiscale</label>
+                            <input
+                                    type="text"
+                                    id="codiceFiscale"
+                                    class="form-control"
+                                    ngModel
+                                    name="codiceFiscale"
+                                    #codiceFiscale="ngModel">
+                        </div>
+                        <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del codiceFiscale</span>
+
+                        <div class="form-group">
+                            <label for="numeroPrivato">numeroPrivato</label>
+                            <input
+                                    type="text"
+                                    id="numeroPrivato"
+                                    class="form-control"
+                                    ngModel
+                                    name="numeroPrivato"
+                                    #numeroPrivato="ngModel">
+                        </div>
+                        <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">Per la registrazione abbiamo bisogno del numeroPrivato</span>
+                        <div class="form-group">
+                            <label for="partitaIva">partitaIva</label>
+                            <input
+                                    type="text"
+                                    id="partitaIva"
+                                    class="form-control"
+                                    ngModel
+                                    name="partitaIva"
+                                    #partitaIva="ngModel">
+                        </div>
+                        <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Per la registrazione abbiamo bisogno del partitaIva</span>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input
                                     type="text"
                                     id="email"
                                     class="form-control"
-                                    [ngModel]="'email@provider.com'"
+                                    ngModel
                                     name="email"
-                            required
-                            email
+                                    required
+                                    email
                                     #email="ngModel">
-
                         </div>
-                        <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
-
-                        <div class="form-group">
-                            <label for="secret">Secret Question</label>
-                            <select
-                                    id="secret"
-                                    class="form-control"
-                                    [ngModel]="defaultQuestion"
-                                    name="secret">
-                                <option value="pet">Your first pet?</option>
-                                <option value="teacher">Your first teacher?</option>
-                            </select>
-                        </div>
-                        <button
-                                class="btn btn-primary"
-                                type="submit"
-                                [disabled]="!sf.valid">Submit</button>
+                        <span class="help-block" *ngIf="!email.valid && email.touched">Email invalida</span>
                     </div>
+                    <button
+                            class="btn btn-primary"
+                            type="submit"
+                            [disabled]="!rf.valid">Submit
+                    </button>
                 </form>
             </div>
         </div>
+        <hr>
     </main>
 </div>
 <app-footer></app-footer>
+
+<!--    DROPDOWN OPTIONS
+   <div class="form-group">
+                        <label for="secret">Secret Question</label>
+                        <select
+                                id="secret"
+                                class="form-control"
+                                [ngModel]="defaultQuestion"
+                                name="secret">
+                            <option value="pet">Your first pet?</option>
+                            <option value="teacher">Your first teacher?</option>
+                        </select>
+                    </div>
+                    -->
+<!--      RADIO - CLICKABLE OPTIONS PRETTY MUCH
+<div class="form-group">
+                            <textarea
+                                    id="questionAnswer"
+                                    name="questionAnswer"
+                                    rows="3"
+                                    [(ngModel)]="answer"
+                                    class="form-control"
+                            ></textarea>
+                        </div>
+                        <p>Your reply: {{answer}} </p>
+                    <div class="radio" *ngFor="let gender of genders">
+                        <label>
+                            <input
+                                type="radio"
+                                name="gender"
+                                ngModel
+                                [value]="gender">
+                            {{gender}}
+                        </label>
+                    </div>
+                    -->
+<!--    CHECK VALUES ARE IN FORM/DTO
+ <div class="row">
+            <div class="col-xs-12">
+                <div class="row" *ngIf="submitted">
+                    <p>{{item.nome}}</p>
+                    <p>{{item.cognome}}</p>
+                    <p>{{item.codiceFiscale}}</p>
+                    <p>{{item.numeroPrivato}}</p>
+                    <p>{{item.email}}</p>
+                    <p>{{item.partitaIva}}</p>
+                </div>
+
+            </div>
+        </div>
+        -->

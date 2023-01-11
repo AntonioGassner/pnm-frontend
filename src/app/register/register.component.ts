@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {ProduttoreCreateDTO, ProduttoreRestAdapterService} from "../../../libs/api/produttori-service/src/lib";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -8,12 +10,49 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  defaultQuestion = 'pet';
-  constructor() { }
+  @ViewChild('rf') registerForm: NgForm;
+    item: ProduttoreCreateDTO = {
+        nome: '',
+        cognome: '',
+        codiceFiscale: '',
+        numeroPrivato: '',
+        email: '',
+        partitaIva: ''
+    }
+    submitted = false;
+  constructor(
+      private service: ProduttoreRestAdapterService
+
+  ) { }
 
   ngOnInit(): void {
   }
-  onSubmit(registerForm: NgForm){
-    console.log(registerForm)
+
+  onSubmit(){
+      // const item: ProduttoreCreateDTO = {
+      //   nome: '',
+      //   cognome: '',
+      //   codiceFiscale: '',
+      //   numeroPrivato: '',
+      //   email: '',
+      //   partitaIva: ''
+      // }
+      this.submitted = true;
+      this.item.nome = this.registerForm.value.produttore.nome;
+      this.item.cognome = this.registerForm.value.produttore.cognome;
+      this.item.codiceFiscale = this.registerForm.value.produttore.codiceFiscale;
+      this.item.numeroPrivato = this.registerForm.value.produttore.numeroPrivato;
+      this.item.email = this.registerForm.value.produttore.email;
+      this.item.partitaIva = this.registerForm.value.produttore.partitaIva;
+
+      this.registerForm.reset();
+
+      this.service.deleteProduttore('').subscribe(responseData =>{
+          console.log(responseData);
+      });
+      // this.service.createProduttore(this.item).subscribe(responseData =>{
+      //     console.log(responseData);
+      // });
+      console.log(this.item);
   }
 }

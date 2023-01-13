@@ -9,7 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './basic/navbar/navbar.component';
 import { FooterComponent } from './basic/footer/footer.component';
-
+import { ProduttoriComponent } from './produttori/produttori.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ProduttoriApiModule} from "../../libs/api/produttori-service/src/lib";
+import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
 
 @NgModule({
   declarations: [
@@ -18,15 +22,24 @@ import { FooterComponent } from './basic/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProduttoriComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule,
     AppRoutingModule,
-
+    HttpClientModule,
+    ProduttoriApiModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: BASE_PATH, useValue: 'http://localhost:8080'
+    }
+  ],
+  bootstrap: [
+      AppComponent
+  ]
 })
 export class AppModule { }

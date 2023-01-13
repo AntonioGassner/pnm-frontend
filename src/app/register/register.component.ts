@@ -1,6 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {ProduttoreCreateDTO, ProduttoreRestAdapterService} from "../../../libs/api/produttori-service/src/lib";
+import {
+    ProduttoreCreateDTO,
+    ProduttoreCriteria,
+    ProduttoreRestAdapterService
+} from "../../../libs/api/produttori-service/src/lib";
 import {HttpClient} from "@angular/common/http";
 
 
@@ -45,14 +49,16 @@ export class RegisterComponent implements OnInit {
       this.item.email = this.registerForm.value.produttore.email;
       this.item.partitaIva = this.registerForm.value.produttore.partitaIva;
 
+      console.log(this.registerForm)
       this.registerForm.reset();
 
-      this.service.deleteProduttore('').subscribe(responseData =>{
-          console.log(responseData);
-      });
-      // this.service.createProduttore(this.item).subscribe(responseData =>{
+
+      // this.service.deleteProduttore('').subscribe(responseData =>{
       //     console.log(responseData);
       // });
-      console.log(this.item);
+      this.service.createProduttore(this.item).subscribe(responseData =>{
+          console.log(responseData);
+      });
+
   }
 }

@@ -2,11 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {
     ProduttoreCreateDTO,
-    ProduttoreCriteria,
     ProduttoreRestAdapterService
 } from "../../../libs/api/produttori-service/src/lib";
-import {HttpClient} from "@angular/common/http";
-
 
 @Component({
   selector: 'app-register',

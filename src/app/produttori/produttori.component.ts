@@ -35,15 +35,22 @@ export class ProduttoriComponent {
       direction: 'asc'
     }]
     console.log(filter)
-    //let values: Observable<PageProduttoreDTO> =
+    let values: Observable<PageProduttoreDTO> =
         this.searchRemote(filter, pagination, sort);
+
+    values.subscribe(produttoreDto => {
+      // @ts-ignore
+      console.log(produttoreDto.content?.pop().id)
+    })
   }
+
+
     searchRemote(
       filter: ProduttoriFilter,
       pagination: IListPagination,
       sort: ITestSort[]
   )
-        //: Observable<PageProduttoreDTO>
+        : Observable<PageProduttoreDTO>
   {
       const criteria: ProduttoreCriteria = {
         id: ['313006d8-d04a-4bba-bb8d-3442b620e866']
@@ -55,15 +62,15 @@ export class ProduttoriComponent {
       page: pagination.offset,
       size: pagination.limit
     };
-    //return
-      this.service.searchProduttore(criteria, pageable).subscribe(responseData =>{
-      console.log(responseData);
-        console.log(responseData.content?.values().next().value.cognome)
-    });
+    return      this.service.searchProduttore(criteria, pageable)
+    //       .subscribe(responseData =>{
+    //   console.log(responseData);
+    //     console.log(responseData.content?.values().next().value.cognome)
+    // });
 
 
-    //     .pipe(
-    //     map((v) => v!)
-    // );
+        .pipe(
+        map((v) => v!)
+    );
   }
 }

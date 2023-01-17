@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
       this.item.email = this.registerForm.value.produttore.email;
       this.item.partitaIva = this.registerForm.value.produttore.partitaIva;
 
+      console.log(this.item.nome);
       console.log(this.registerForm)
       this.registerForm.reset();
 

@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ProduttoriApiModule} from "../../libs/api/produttori-service/src/lib";
 import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    ProduttoriComponent
+    ProduttoriComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

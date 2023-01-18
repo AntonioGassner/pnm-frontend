@@ -15,6 +15,14 @@ import {HttpClient} from "@angular/common/http";
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('rf') registerForm: NgForm;
+    item: ProduttoreCreateDTO = {
+        nome: '',
+        cognome: '',
+        codiceFiscale: '',
+        numeroPrivato: '',
+        email: '',
+        partitaIva: ''
+    }
     submitted = false;
   constructor(
       private service: ProduttoreRestAdapterService
@@ -25,24 +33,33 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-      let item: ProduttoreCreateDTO = {
-        nome: this.registerForm.value.produttore.nome,
-        cognome: this.registerForm.value.produttore.cognome,
-        codiceFiscale: '',
-        numeroPrivato: '',
-        email: '',
-        partitaIva: ''
-      };
+      // const item: ProduttoreCreateDTO = {
+      //   nome: '',
+      //   cognome: '',
+      //   codiceFiscale: '',
+      //   numeroPrivato: '',
+      //   email: '',
+      //   partitaIva: ''
+      // }
       this.submitted = true;
-      item.nome = this.registerForm.value.produttore.nome;
-      item.cognome = this.registerForm.value.produttore.cognome;
-      item.codiceFiscale = this.registerForm.value.produttore.codiceFiscale;
-      item.numeroPrivato = this.registerForm.value.produttore.numeroPrivato;
-      item.email = this.registerForm.value.produttore.email;
-      item.partitaIva = this.registerForm.value.produttore.partitaIva;
+      this.item.nome = this.registerForm.value.produttore.nome;
+      this.item.cognome = this.registerForm.value.produttore.cognome;
+      this.item.codiceFiscale = this.registerForm.value.produttore.codiceFiscale;
+      this.item.numeroPrivato = this.registerForm.value.produttore.numeroPrivato;
+      this.item.email = this.registerForm.value.produttore.email;
+      this.item.partitaIva = this.registerForm.value.produttore.partitaIva;
+
+      console.log(this.item.nome);
+      console.log(this.registerForm)
       this.registerForm.reset();
-      this.service.createProduttore(item).subscribe(responseData =>{
+
+
+      // this.service.deleteProduttore('').subscribe(responseData =>{
+      //     console.log(responseData);
+      // });
+      this.service.createProduttore(this.item).subscribe(responseData =>{
           console.log(responseData);
       });
+
   }
 }

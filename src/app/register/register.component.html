@@ -1,13 +1,166 @@
 <app-navbar></app-navbar>
 <div class="container">
     <main>
-        <div class="row">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="assets/img/logo.svg" alt="" width="72" height="57">
+            <h2>Checkout form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+
+
+
+
+        <div class="col-md-7 col-lg-8 center">
+            <h4 class="mb-3">Registrazione Azienda</h4>
+            <!--    TODO add subtitles nomeazienda, indirizzo, credenzialiaccount-->
+            <form  (ngSubmit)="onSubmit()" #rf="ngForm">
+                <div class="row g-3" id="produttore" ngModelGroup="produttore">
+
+                    <div class="col-10">
+                        <label for="codiceFiscale" class="form-label">Partita IVA </label>
+                        <input
+                                type="text"
+                                id="codiceFiscale"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="codiceFiscale"
+                                #codiceFiscale="ngModel">
+
+                    </div>
+                    <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del codiceFiscale</span>
+                    <div class="col-10">
+                        <label for="nome" class="form-label">Ragione Sociale</label>
+                        <input
+                                type="text"
+                                id="nome"
+                                class="form-control"
+                                ngModel
+                                name="nome"
+                                required
+                                #nome="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>
+                    <div class="col-10">
+                        <label for="address" class="form-label">Indirizzo aziendale:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Via G. da Procida, 1" required>
+                        <div class="invalid-feedback">
+                            Si prega di inserire un indirizzo valido.
+                        </div>
+                    </div>
+
+                    <div class="col-10">
+                        <label for="numeroPrivato" class="form-label">Numero di telefono </label>
+                        <input
+                                type="text"
+                                id="numeroPrivato"
+                                class="form-control"
+                                ngModel
+                                name="numeroPrivato"
+                                #numeroPrivato="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">numero obbligatorio</span>
+
+
+
+                <div class="col-10">
+                    <label for="email" class="form-label">Indirizzo e-mail <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" id="email" placeholder="you@example.com" value="" required>
+                    <div class="invalid-feedback">
+                        Si prega di inserire un indirizzo e-mail valido.
+                    </div>
+                </div>
+                <div class="col-10">
+                    <label for="repemail" class="form-label">Ripeti indirizzo e-mail <span class="text-muted"></span></label>
+                    <input type="text" class="form-control" id="repemail" placeholder="you@example.com" value="" required>
+                    <div class="invalid-feedback">
+                        Si prega di inserire un indirizzo e-mail valido.
+                    </div>
+                </div>
+
+                <div class="col-10">
+                    <label for="password" class="form-label">Inserisci password: <span class="text-muted"></span></label>
+                    <input type="password" class="form-control" id="password" placeholder="passWordSample123" value="" required>
+                    <div class="invalid-feedback">
+                        Si prega di inserire una password valida.
+                    </div>
+                </div>
+
+                <div class="col-10">
+                    <label for="reppassword" class="form-label">Ripeti password: <span class="text-muted"></span></label>
+                    <input type="password" class="form-control" id="reppassword" placeholder="passWordSample123" value="" required>
+                    <div class="invalid-feedback">
+                        Si prega di inserire una password valida.
+                    </div>
+                </div>
+                    <div class="col-md-5">
+                        <label for="country" class="form-label">Regione</label>
+                        <select class="form-select" id="country" required>
+                            <option value="">Seleziona...</option>
+                            <option>Marche</option>
+                            <option>Lazio</option>
+                            <option>Umbria</option>
+                            <option>Toscana</option>
+                            <option>Emilia-Romagna</option>
+                            <option>Campania</option>
+                            <option>Molise</option>
+                            <option>Abruzzo</option>
+                            <option>Basilicata</option>
+                            <!--                                TODO should I add all regions? -->
+                            <option>Puglia</option>
+
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="state" class="form-label">State</label>
+                        <select class="form-select" id="state" required>
+                            <option value="">Choose...</option>
+                            <option>California</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="zip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="zip" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Zip code required.
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!rf.valid">Register User</button>
+            </form>
+        </div>
+
+    </main>
+</div>
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <main>
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
                 <form (ngSubmit)="onSubmit()" #rf="ngForm">
                     <div id="produttore" ngModelGroup="produttore">
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input
+                             <input
                                     type="text"
                                     id="nome"
                                     class="form-control"
@@ -16,7 +169,7 @@
                                     required
                                     #nome="ngModel">
                         </div>
-                        <span class="help-block" *ngIf="!nome.valid && nome.touched">Per la registrazione abbiamo bisogno del nome</span>
+                        <span class="help-block" *ngIf="!nome.valid && nome.touched">Per la registrazionabbiamo bisogno del nome</span>
                         <div class="form-group">
                             <label for="cognome">cognome</label>
                             <input
@@ -88,7 +241,7 @@
         </div>
         <hr>
     </main>
-</div>
+</div>  -->
 <app-footer></app-footer>
 
 <!--    DROPDOWN OPTIONS

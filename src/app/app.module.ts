@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProduttoriApiModule} from "../../libs/api/produttori-service/src/lib";
 import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PresentazioneComponent } from './presentazione/presentazione.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavbarComponent,
     FooterComponent,
     ProduttoriComponent,
-    DashboardComponent
+    DashboardComponent,
+    PresentazioneComponent
   ],
   imports: [
     BrowserModule,

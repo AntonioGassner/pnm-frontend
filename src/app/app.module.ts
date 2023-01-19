@@ -14,7 +14,8 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ProduttoriApiModule} from "../../libs/api/produttori-service/src/lib";
 import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
-import {WhoareComponent} from "./whoare/whoare.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PresentazioneComponent } from './presentazione/presentazione.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {WhoareComponent} from "./whoare/whoare.component";
     NavbarComponent,
     FooterComponent,
     ProduttoriComponent,
-    WhoareComponent
+    DashboardComponent,
+    PresentazioneComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ import {ProduttoriApiModule} from "../../libs/api/produttori-service/src/lib";
 import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PresentazioneComponent } from './presentazione/presentazione.component';
+import { ProfiloProduttoreComponent } from './profilo-produttore/profilo-produttore.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PresentazioneComponent } from './presentazione/presentazione.component'
     FooterComponent,
     ProduttoriComponent,
     DashboardComponent,
-    PresentazioneComponent
+    PresentazioneComponent,
+    ProfiloProduttoreComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {RegisterComponent} from "./register/register.component";
 import {ProduttoriComponent} from "./produttori/produttori.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {PresentazioneComponent} from "./presentazione/presentazione.component";
+import {ProfiloProduttoreComponent} from "./profilo-produttore/profilo-produttore.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'register', component:RegisterComponent},
   { path: 'produttori', component: ProduttoriComponent},
   { path: 'presentazione', component: PresentazioneComponent},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'profilo', component: ProfiloProduttoreComponent}
 ];
 
 @NgModule({

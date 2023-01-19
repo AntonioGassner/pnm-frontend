@@ -31,7 +31,7 @@
                     </div>
                     <span class="help-block" *ngIf="!cognome.valid && cognome.touched">Per la registraziona abbiamo del cognome </span>
                     <div class="col-10">
-                        <label for="codiceFiscale" class="form-label">Partita IVA </label>
+                        <label for="codiceFiscale" class="form-label">Codice Fiscale </label>
                         <input
                                 type="text"
                                 id="codiceFiscale"
@@ -49,6 +49,7 @@
                                 id="numeroPrivato"
                                 class="form-control"
                                 ngModel
+                                required
                                 name="numeroPrivato"
                                 #numeroPrivato="ngModel">
                     </div>
@@ -60,6 +61,7 @@
                                 id="partitaIva"
                                 class="form-control"
                                 ngModel
+                                required
                                 name="partitaIva"
                                 #partitaIva="ngModel">
                     </div>
@@ -71,6 +73,7 @@
                                 id="email"
                                 class="form-control"
                                 ngModel
+                                required
                                 name="email"
                                 email
                                 #email="ngModel">
@@ -134,7 +137,6 @@
                     <p>{{item.email}}</p>
                     <p>{{item.partitaIva}}</p>
                 </div>
-
             </div>
         </div>
         -->

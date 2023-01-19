@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
             this.produttore.numeroPrivato = data.numeroPrivato;
             this.produttore.email = data.email;
             this.produttore.partitaIva = data.partitaIva;
-
         });
     }
 

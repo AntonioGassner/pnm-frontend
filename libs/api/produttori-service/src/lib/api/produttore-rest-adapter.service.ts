@@ -146,7 +146,7 @@ export class ProduttoreRestAdapterService {
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
             } else {
-                responseType_ = 'blob';
+                responseType_ = 'json';
             }
         }
 
@@ -199,7 +199,7 @@ export class ProduttoreRestAdapterService {
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
             } else {
-                responseType_ = 'blob';
+                responseType_ = 'json';
             }
         }
 
@@ -265,7 +265,7 @@ export class ProduttoreRestAdapterService {
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
             } else {
-                responseType_ = 'blob';
+                responseType_ = 'json';
             }
         }
 
@@ -327,7 +327,7 @@ export class ProduttoreRestAdapterService {
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
             } else {
-                responseType_ = 'blob';
+                responseType_ = 'json';
             }
         }
 

@@ -92,20 +92,20 @@
                             [disabled]="!rf.valid">Submit
                     </button>
                 </form>
-<!--                <div>-->
-<!--                    <span *ngIf="submitted">-->
-<!--                        {{produttore.id}}-->
-<!--                        {{produttore.nome}}-->
-<!--                        {{produttore.cognome}}-->
-<!--                        {{produttore.codiceFiscale}}-->
-<!--                        {{produttore.numeroPrivato}}-->
-<!--                        {{produttore.email}}-->
-<!--                        {{produttore.partitaIva}}-->
-<!--                    </span>-->
-<!--                </div>-->
+                <hr>
+                <div class="row" *ngIf="submitted">
+                    <div class="col-xs-12">
+                        <p>ID: {{produttore.id}}</p>
+                        <p>{{produttore.nome}}</p>
+                        <p>{{produttore.cognome}}</p>
+                        <p>{{produttore.codiceFiscale}}</p>
+                        <p>{{produttore.numeroPrivato}}</p>
+                        <p>{{produttore.email}}</p>
+                        <p>{{produttore.partitaIva}}</p>
+                </div>
+            </div>
             </div>
         </div>
-        <hr>
     </main>
 </div>
 <app-footer></app-footer>

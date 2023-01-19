@@ -11,7 +11,7 @@
                                     type="text"
                                     id="nome"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'nome'"
                                     name="nome"
                                     required
                                     #nome="ngModel">
@@ -23,9 +23,10 @@
                                     type="text"
                                     id="cognome"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'cognome'"
                                     name="cognome"
                                     required
+                                    placeholder="cognome"
                                     #cognome="ngModel">
                         </div>
                         <span class="help-block" *ngIf="!cognome.valid && cognome.touched">Per la registrazione abbiamo bisogno del cognome</span>
@@ -36,8 +37,10 @@
                                     type="text"
                                     id="codiceFiscale"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'codiceFiscale'"
                                     name="codiceFiscale"
+                                    required
+                                    placeholder="codiceFiscale"
                                     #codiceFiscale="ngModel">
                         </div>
                         <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del codiceFiscale</span>
@@ -48,8 +51,10 @@
                                     type="text"
                                     id="numeroPrivato"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'numeroPrivato'"
                                     name="numeroPrivato"
+                                    required
+                                    placeholder="numeroPrivato"
                                     #numeroPrivato="ngModel">
                         </div>
                         <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">Per la registrazione abbiamo bisogno del numeroPrivato</span>
@@ -59,8 +64,10 @@
                                     type="text"
                                     id="partitaIva"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'partitaIva'"
                                     name="partitaIva"
+                                    required
+                                    placeholder="partitaIva"
                                     #partitaIva="ngModel">
                         </div>
                         <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Per la registrazione abbiamo bisogno del partitaIva</span>
@@ -70,8 +77,9 @@
                                     type="text"
                                     id="email"
                                     class="form-control"
-                                    ngModel
+                                    [ngModel]="'email@gmail.com'"
                                     name="email"
+                                    placeholder="email"
                                     required
                                     email
                                     #email="ngModel">
@@ -84,60 +92,20 @@
                             [disabled]="!rf.valid">Submit
                     </button>
                 </form>
+<!--                <div>-->
+<!--                    <span *ngIf="submitted">-->
+<!--                        {{produttore.id}}-->
+<!--                        {{produttore.nome}}-->
+<!--                        {{produttore.cognome}}-->
+<!--                        {{produttore.codiceFiscale}}-->
+<!--                        {{produttore.numeroPrivato}}-->
+<!--                        {{produttore.email}}-->
+<!--                        {{produttore.partitaIva}}-->
+<!--                    </span>-->
+<!--                </div>-->
             </div>
         </div>
         <hr>
     </main>
 </div>
 <app-footer></app-footer>
-
-<!--    DROPDOWN OPTIONS
-   <div class="form-group">
-                        <label for="secret">Secret Question</label>
-                        <select
-                                id="secret"
-                                class="form-control"
-                                [ngModel]="defaultQuestion"
-                                name="secret">
-                            <option value="pet">Your first pet?</option>
-                            <option value="teacher">Your first teacher?</option>
-                        </select>
-                    </div>
-                    -->
-<!--      RADIO - CLICKABLE OPTIONS PRETTY MUCH
-<div class="form-group">
-                            <textarea
-                                    id="questionAnswer"
-                                    name="questionAnswer"
-                                    rows="3"
-                                    [(ngModel)]="answer"
-                                    class="form-control"
-                            ></textarea>
-                        </div>
-                        <p>Your reply: {{answer}} </p>
-                    <div class="radio" *ngFor="let gender of genders">
-                        <label>
-                            <input
-                                type="radio"
-                                name="gender"
-                                ngModel
-                                [value]="gender">
-                            {{gender}}
-                        </label>
-                    </div>
-                    -->
-<!--    CHECK VALUES ARE IN FORM/DTO
- <div class="row">
-            <div class="col-xs-12">
-                <div class="row" *ngIf="submitted">
-                    <p>{{item.nome}}</p>
-                    <p>{{item.cognome}}</p>
-                    <p>{{item.codiceFiscale}}</p>
-                    <p>{{item.numeroPrivato}}</p>
-                    <p>{{item.email}}</p>
-                    <p>{{item.partitaIva}}</p>
-                </div>
-
-            </div>
-        </div>
-        -->

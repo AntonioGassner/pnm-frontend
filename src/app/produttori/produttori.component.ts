@@ -3,7 +3,7 @@ import {map, Observable} from "rxjs";
 import {
     PageProduttoreDTO, ProduttoreCreateDTO,
     ProduttoreCriteria, ProduttoreDTO,
-    ProduttoreRestAdapterService
+    ProduttoreRestAdapterService, StringFilter
 } from "../../../libs/api/produttori-service/src/lib";
 import {IListPagination, IListSort, ITestSort, serializeSort} from "../utils/common.model";
 import {ProduttoriFilter} from "./produttori.filter";
@@ -17,41 +17,83 @@ import {storeOutputsWatcherSubscription} from "nx/src/daemon/server/shutdown-uti
 })
 export class ProduttoriComponent {
     @ViewChild('sf') searchForm: NgForm;
-    // produttori: Array<ProduttoreDTO>;
-
+    produttori: Array<ProduttoreDTO> | undefined;
 
     constructor(
         private service: ProduttoreRestAdapterService
     ) {
     }
 
-    onSubmit() {
+    ngOnInit(): void {
         let filter: ProduttoriFilter = {
-            nome: this.searchForm.value.produttore.nome,
-            cognome: this.searchForm.value.produttore.cognome,
         };
         let pagination: IListPagination = {
-            limit: 4,
+            limit: 12,
             offset: 0
         };
         let sort: ITestSort[] = [{
             direction: 'asc'
         }]
-        let searchResult: Observable<PageProduttoreDTO> = this.searchRemote(filter, pagination, sort);
+        const criteria: ProduttoreCriteria = {
+        };
 
-      searchResult.subscribe(data => {
-        console.log(data)
+        const pageable = {
+            sort: [sort.values().next().value],
+            page: pagination.offset,
+            size: pagination.limit
+        };
+        let searchResult: Observable<PageProduttoreDTO> = this.service.searchProduttore(criteria, pageable).pipe(
+            map((v) => v!)
+        );
+
+        searchResult.subscribe(data => {
+            this.produttori = data.content
         })
     }
 
+    onSubmit() {
+        console.log(this.searchForm)
+        const criteria: ProduttoreCriteria = {
+        };
+
+        // if(this.searchForm.id !== undefined){
+        //     criteria.id = [filter.id]
+        // }
+        if(this.searchForm.value.nome !== undefined){
+            let nomeFilter: StringFilter = {
+                equals: this.searchForm.value.nome,
+                _in: ['nome']
+            }
+            criteria.nome = [nomeFilter]
+        }
+        if(this.searchForm.value.cognome !== undefined){
+            let cognomeFilter: StringFilter = {
+                equals: this.searchForm.value.cognome,
+                _in: ['cognome']
+            }
+            criteria.cognome = [cognomeFilter]
+        }
+        let pagination: IListPagination = {
+            limit: 12,
+            offset: 0
+        };
+        let sort: ITestSort[] = [{
+            direction: 'asc'
+        }]
+        // console.log(criteria)
+        let searchResult: Observable<PageProduttoreDTO> = this.searchRemote(criteria, pagination, sort);
+        searchResult.subscribe(data => {
+            this.produttori = data.content
+            // console.log(data)
+        })
+
+    }
 
     searchRemote(
-        filter: ProduttoriFilter,
+        criteria: ProduttoreCriteria,
         pagination: IListPagination,
         sort: ITestSort[]
     ): Observable<PageProduttoreDTO> {
-        const criteria: ProduttoreCriteria = {
-        };
         const pageable = {
             sort: [sort.values().next().value],
             page: pagination.offset,

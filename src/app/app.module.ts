@@ -17,6 +17,7 @@ import { BASE_PATH } from 'libs/api/produttori-service/src/lib';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PresentazioneComponent } from './presentazione/presentazione.component';
 import { ProfiloProduttoreComponent } from './profilo-produttore/profilo-produttore.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProfiloProduttoreComponent } from './profilo-produttore/profilo-produtt
     ProduttoriComponent,
     DashboardComponent,
     PresentazioneComponent,
-    ProfiloProduttoreComponent
+    ProfiloProduttoreComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    background-color: rgba(245, 245, 245, 0.99);
+}
+.main{
+    width: 1000px;
+}

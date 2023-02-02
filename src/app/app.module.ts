@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PresentazioneComponent } from './presentazione/presentazione.component';
 import { ProfiloProduttoreComponent } from './profilo-produttore/profilo-produttore.component';
 import { ErrorComponent } from './error/error.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ErrorComponent } from './error/error.component';
     DashboardComponent,
     PresentazioneComponent,
     ProfiloProduttoreComponent,
-    ErrorComponent
+    ErrorComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

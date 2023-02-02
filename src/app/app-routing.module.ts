@@ -8,6 +8,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {PresentazioneComponent} from "./presentazione/presentazione.component";
 import {ProfiloProduttoreComponent} from "./profilo-produttore/profilo-produttore.component";
 import {ErrorComponent} from "./error/error.component";
+import {LogoutComponent} from "./logout/logout.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'presentazione', component: PresentazioneComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'profilo', component: ProfiloProduttoreComponent},
+  { path: 'logout', component: LogoutComponent},
   { path: '**', component: ErrorComponent},
 ];
 

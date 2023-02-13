@@ -1,59 +1,34 @@
 <app-navbar></app-navbar>
 <body class="text-center">
 <main class="form-signin w-100 m-auto">
-    <img src="assets/img/logo-prodotti-nobili.png" alt="Logo" width="522" height="174" class="d-inline-block align-text-top">
-
-    <h4 class="mb-3">Login Produttore</h4>
     <form (ngSubmit)="onSubmit()" #lf="ngForm">
-        <div class="row g-3" id="produttore" ngModelGroup="produttore">
-        <div class="col-10">
-            <label for="nome" class="form-label">Nome</label>
-            <input
-                    type="text"
-                    id="nome"
-                    class="form-control"
-                    ngModel
-                    name="nome"
-                    required
-                    #nome="ngModel">
+        <img class="mb-4" src="assets/img/logo.png"  height="130" width="320" >
+        <h1 class="h3 mb-3 fw-normal">Inserire le credenziali</h1>
+
+        <div class="form-floating" id="produttore" ngModelGroup="produttore">
+            <input type="email"
+                   class="form-control"
+                   id="nome"
+                   ngModel
+                   name="nome"
+                   placeholder="name@example.com"
+                   #nome="ngModel">
+            <label for="nome">Email address</label>
         </div>
         <span class="help-block"
               *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>
-        <div class="col-10">
-            <label for="cognome" class="form-label">Cognome</label>
-            <input
-                    type="text"
-                    id="cognome"
-                    class="form-control"
-                    ngModel
-                    name="cognome"
-                    required
-                    #cognome="ngModel">
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
         </div>
-        <span class="help-block" *ngIf="!cognome.valid && cognome.touched">Per la registraziona abbiamo del cognome </span>
 
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit"[disabled]="!lf.valid">Sign in</button>
-        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     </form>
-    <div class="box" *ngIf="loginSuccesful">
-        <div class="col-xs-12" >
-            <div class="row">
-                <p>Nome: {{produttore.nome}}</p>
-                <p>Cognome: {{produttore.cognome}}</p>
-                <p>Codice Fiscale: {{produttore.codiceFiscale}}</p>
-                <p>Numero Privato: {{produttore.numeroPrivato}}</p>
-                <p>Email: {{produttore.email}}</p>
-                <p>Partita IVA: {{produttore.partitaIva}}</p>
-                <p>Tesseramento Attivo: {{produttore.tesseramentoAttivo}}</p>
-            </div>
-        </div>
-    </div>
-
 </main>
 </body>
 

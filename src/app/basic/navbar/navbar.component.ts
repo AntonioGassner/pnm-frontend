@@ -7,7 +7,7 @@ import {LoginComponent} from "../../login/login.component";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  log: boolean = true;
+  log: boolean
 
 
   constructor() { }
@@ -18,7 +18,11 @@ export class NavbarComponent implements OnInit {
 
 
   Logout() {
-      console.log(this.log)
-     this.log = false;
+    if (this.log){
+      this.log = false;
+    }else {
+      this.log = true;
+    }
+
   }
 }

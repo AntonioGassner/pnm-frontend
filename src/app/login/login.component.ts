@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     partitaIva: '',
   }
 
+
   constructor(
       private service: ProduttoreRestAdapterService
   ) { }
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.loginForm.value.produttore.nome);
     let filter: ProduttoriFilter = {
       nome: this.loginForm.value.produttore.nome,
       cognome: this.loginForm.value.produttore.cognome,

@@ -3,15 +3,16 @@
     <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-body text-center">
-                <img src="assets/img/vissana_top.png" alt="logo"
+                <img src="assets/img/picchio.jpeg" alt="logo"
                      style="width: 150px;">
-                <h5 class="my-3">Vissana Salumi</h5>
-                <p class="text-muted mb-1">Prodotto: Ciauscolo</p>
-                <p class="text-muted mb-4">Visso, Marche, Italia</p>
-                <!-- <div class="d-flex justify-content-center mb-2">
-                     <button type="button" class="btn btn-primary">Follow</button>
-                     <button type="button" class="btn btn-outline-primary ms-1">Message</button>
-                 </div> -->
+                <h5 class="my-3">Pasticceria Picchio</h5>
+
+                <div class="d-flex justify-content-center mb-2">
+                    <form (ngSubmit)="edit()" >
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <button type="submit" class="btn btn-outline-primary ms-1">Save</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="card mb-4 mb-lg-0">
@@ -19,7 +20,7 @@
                 <ul class="list-group list-group-flush rounded-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="bi bi-globe bi-lg text-warning"></i>
-                        <p class="mb-0">https://vissana.com</p>
+                        <p class="mb-0">https://mdbootstrap.com</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="bi bi-twitter bi-lg" style="color: #55acee;"></i>
@@ -42,10 +43,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3">
-                        <p class="mb-0">Full Name</p>
+                        <p class="mb-0">Nome Azienda</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">Johnatan Smith</p>
+                        <p *ngIf="!this.log" class="text-muted mb-0">Johnatan Smith</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="">
                     </div>
                 </div>
                 <hr>

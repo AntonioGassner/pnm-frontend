@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 })
 export class AppComponent {
-  title ='pnm-frontend';
+  title ='Prodotti Nobili Marchigiani';
 
   constructor(private modalService: NgbModal) {
   }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="#">
             <img src="assets/img/logo.png" alt="Logo" width="80" height="35" class="d-inline-block align-text-top"></a>
             <b class="titolo">Prodotti Nobili Marchigiani</b>
@@ -9,14 +9,14 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 <a class="nav-link" routerLink="/presentazione">L'Associazione</a>
                 <a class="nav-link"  routerLink="/produttori">Produttori</a>
-                <a class="nav-link" routerLink="/dashboard">Mio profilo</a>
+                <a class="nav-link" routerLink="/profilo">Mio profilo</a>
             </div>
         </div>
         <form class="d-flex" role="login" (ngSubmit)="Logout()" >
-            <button   *ngIf="!this.log" class="btn btn-outline-primary" type="submit" routerLink="/register">Register</button>
-            <button   *ngIf="!this.log" class="btn btn-outline-secondary" type="submit" routerLink="/login">Login</button>
-            <button   *ngIf="this.log" class="btn btn-outline-primary" type="submit" routerLink="/dashboard">Profilo</button>
-            <button   *ngIf="this.log" class="btn btn-outline-secondary" type="submit"  routerLink="/logout">Logout</button>
+            <button   *ngIf="!this.log" class="btn btn-outline-secondary" type="submit" routerLink="/register">Register</button>
+            <button   *ngIf="!this.log" class="btn btn-warning" type="submit" routerLink="/login">Login</button>
+            <button   *ngIf="this.log" class="btn btn-outline-secondary" type="submit" routerLink="/dashboard">Profilo</button>
+            <button   *ngIf="this.log" class="btn btn-warning" type="submit"  routerLink="/logout">Logout</button>
         </form>
     </div>
 </nav>

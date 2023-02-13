@@ -32,7 +32,7 @@
                         placeholder="comune">
             </div>
             <div class="col-md-3">
-                <button class="btn btn-primary" type="submit" [disabled]="!cognome.touched && !nome.touched">Cerca</button>
+                <button class="btn btn-warning" type="submit" [disabled]="!cognome.touched && !nome.touched">Cerca</button>
             </div>
         </div>
     </form>
@@ -48,7 +48,7 @@
                     <p class="card-text">Email: {{produttore.email}}</p>
                     <p class="card-text">Partita IVA: {{produttore.partitaIva}}</p>
                     <p class="card-text">Tesseramento Attivo: {{produttore.tesseramentoAttivo}}</p>
-                    <a class="btn btn-primary">Dettagli</a>
+                    <a class="btn btn-outline-warning">Dettagli</a>
                 </div>
             </div>
         </div>

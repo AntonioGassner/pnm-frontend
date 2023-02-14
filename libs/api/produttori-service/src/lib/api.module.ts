@@ -2,12 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { ProduttoriConfiguration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
-import { AziendaCategoriaRestAdapterService } from './api/azienda-categoria-rest-adapter.service';
 import { AziendaRestAdapterService } from './api/azienda-rest-adapter.service';
-import { CategoriaRestAdapterService } from './api/categoria-rest-adapter.service';
-import { ComuneRestAdapterService } from './api/comune-rest-adapter.service';
-import { ProduttoreRestAdapterService } from './api/produttore-rest-adapter.service';
-import { ProvinciaRestAdapterService } from './api/provincia-rest-adapter.service';
 
 @NgModule({
   imports:      [],

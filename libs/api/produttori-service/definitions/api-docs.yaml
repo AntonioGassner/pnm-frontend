@@ -6,147 +6,29 @@ servers:
 - url: http://localhost:8080
   description: Generated server url
 paths:
-  /api/provincia:
-    put:
-      tags:
-      - provincia-rest-adapter
-      operationId: updateProvincia
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProvinciaUpdateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ProvinciaDTO'
-    post:
-      tags:
-      - provincia-rest-adapter
-      operationId: createProvincia
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProvinciaCreateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ProvinciaDTO'
-  /api/produttore:
-    put:
-      tags:
-      - produttore-rest-adapter
-      operationId: updateProduttore
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProduttoreUpdateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ProduttoreDTO'
-    post:
-      tags:
-      - produttore-rest-adapter
-      operationId: createProduttore
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProduttoreCreateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ProduttoreDTO'
-  /api/comune:
-    put:
-      tags:
-      - comune-rest-adapter
-      operationId: updateComune
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ComuneUpdateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ComuneDTO'
-    post:
-      tags:
-      - comune-rest-adapter
-      operationId: createComune
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ComuneCreateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ComuneDTO'
-  /api/categoria:
-    put:
-      tags:
-      - categoria-rest-adapter
-      operationId: updateCategoria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CategoriaUpdateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/CategoriaDTO'
-    post:
-      tags:
-      - categoria-rest-adapter
-      operationId: createCategoria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CategoriaCreateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/CategoriaDTO'
   /api/azienda:
+    get:
+      tags:
+      - azienda-rest-adapter
+      operationId: findAziendaByIds
+      parameters:
+      - name: ids
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AziendaDTO'
     put:
       tags:
       - azienda-rest-adapter
@@ -181,133 +63,43 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/AziendaDTO'
-  /api/azienda-categoria:
+  /api/azienda/{id}:
     put:
       tags:
-      - azienda-categoria-rest-adapter
-      operationId: updateAziendaCategoria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AziendaCategoriaUpdateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/AziendaCategoriaDTO'
-    post:
-      tags:
-      - azienda-categoria-rest-adapter
-      operationId: createAziendaCategoria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AziendaCategoriaCreateDTO'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/AziendaCategoriaDTO'
-  /api/provincia/ricerca:
-    get:
-      tags:
-      - provincia-rest-adapter
-      operationId: searchProvincia
+      - azienda-rest-adapter
+      operationId: attivaTesseramento
       parameters:
-      - name: criteria
-        in: query
+      - name: id
+        in: path
         required: true
         schema:
-          $ref: '#/components/schemas/ProvinciaCriteria'
-      - name: pageRequest
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/Pageable'
+          type: string
+          format: uuid
       responses:
         "200":
           description: OK
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/PageProvinciaDTO'
-  /api/produttore/ricerca:
-    get:
+                type: object
+    delete:
       tags:
-      - produttore-rest-adapter
-      operationId: searchProduttore
+      - azienda-rest-adapter
+      operationId: deleteAzienda
       parameters:
-      - name: criteria
-        in: query
+      - name: id
+        in: path
         required: true
         schema:
-          $ref: '#/components/schemas/ProduttoreCriteria'
-      - name: pageRequest
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/Pageable'
+          type: string
+          format: uuid
       responses:
         "200":
           description: OK
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/PageProduttoreDTO'
-  /api/comune/ricerca:
-    get:
-      tags:
-      - comune-rest-adapter
-      operationId: searchComune
-      parameters:
-      - name: criteria
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/ComuneCriteria'
-      - name: pageRequest
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/Pageable'
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/PageComuneDTO'
-  /api/categoria/ricerca:
-    get:
-      tags:
-      - categoria-rest-adapter
-      operationId: searchCategoria
-      parameters:
-      - name: criteria
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/CategoriaCriteria'
-      - name: pageRequest
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/Pageable'
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/PageCategoriaDTO'
+                type: object
   /api/azienda/ricerca:
     get:
       tags:
@@ -331,413 +123,241 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PageAziendaDTO'
-  /api/azienda-categoria/ricerca:
+  /api/azienda/login:
     get:
       tags:
-      - azienda-categoria-rest-adapter
-      operationId: searchAziendaCategoria
-      parameters:
-      - name: criteria
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/AziendaCategoriaCriteria'
-      - name: pageRequest
-        in: query
-        required: true
-        schema:
-          $ref: '#/components/schemas/Pageable'
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/PageAziendaCategoriaDTO'
-  /api/provincia/{id}:
-    delete:
-      tags:
-      - provincia-rest-adapter
-      operationId: deleteProvincia
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
-  /api/produttore/{id}:
-    delete:
-      tags:
-      - produttore-rest-adapter
-      operationId: deleteProduttore
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
-  /api/comune/{id}:
-    delete:
-      tags:
-      - comune-rest-adapter
-      operationId: deleteComune
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
-  /api/categoria/{id}:
-    delete:
-      tags:
-      - categoria-rest-adapter
-      operationId: deleteCategoria
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
-  /api/azienda/{id}:
-    delete:
-      tags:
       - azienda-rest-adapter
-      operationId: deleteAzienda
+      operationId: validateLogin
       parameters:
-      - name: id
-        in: path
+      - name: user
+        in: query
         required: true
         schema:
           type: string
-          format: uuid
+      - name: pass
+        in: query
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           description: OK
           content:
             '*/*':
               schema:
-                type: object
-  /api/azienda-categoria/{id}:
-    delete:
-      tags:
-      - azienda-categoria-rest-adapter
-      operationId: deleteAziendaCategoria
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
+                $ref: '#/components/schemas/AziendaDTO'
 components:
   schemas:
-    ProvinciaUpdateDTO:
-      required:
-      - nome
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-    ProvinciaDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-    ProduttoreUpdateDTO:
-      required:
-      - codiceFiscale
-      - cognome
-      - email
-      - nome
-      - numeroPrivato
-      - partitaIva
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        cognome:
-          type: string
-        codiceFiscale:
-          type: string
-        numeroPrivato:
-          type: string
-        email:
-          type: string
-        partitaIva:
-          type: string
-        tesseramentoAttivo:
-          type: boolean
-    ProduttoreDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        cognome:
-          type: string
-        codiceFiscale:
-          type: string
-        numeroPrivato:
-          type: string
-        email:
-          type: string
-        partitaIva:
-          type: string
-        tesseramentoAttivo:
-          type: boolean
-    ComuneUpdateDTO:
-      required:
-      - nome
-      - provincia
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        provincia:
-          type: string
-          format: uuid
-    ComuneDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        provincia:
-          $ref: '#/components/schemas/ProvinciaDTO'
-    CategoriaUpdateDTO:
-      required:
-      - nome
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        descrizione:
-          type: string
-    CategoriaDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        nome:
-          type: string
-        descrizione:
-          type: string
     AziendaUpdateDTO:
       required:
+      - cap
+      - codiceFiscale
+      - cognomeProduttore
       - comune
-      - email
-      - nome
-      - numeroPubblico
-      - produttore
+      - emailAzienda
+      - emailPrivata
+      - indirizzo
+      - nomeAzienda
+      - nomeProduttore
+      - numeroAzienda
+      - numeroPrivato
+      - partitaIva
+      - password
       - provincia
+      - ragioneSociale
       type: object
       properties:
         id:
           type: string
           format: uuid
-        nome:
+        nomeProduttore:
           type: string
-        numeroPubblico:
+        cognomeProduttore:
           type: string
-        email:
+        partitaIva:
+          maxLength: 11
+          minLength: 11
           type: string
-        produttore:
+        numeroPrivato:
           type: string
-          format: uuid
+        emailPrivata:
+          type: string
+        codiceFiscale:
+          maxLength: 16
+          minLength: 16
+          type: string
+        tesseramentoAttivo:
+          type: boolean
+        nomeAzienda:
+          type: string
+        ragioneSociale:
+          type: string
+        numeroAzienda:
+          type: string
+        emailAzienda:
+          type: string
         comune:
           type: string
-          format: uuid
         provincia:
           type: string
-          format: uuid
+        indirizzo:
+          type: string
+        cap:
+          type: string
+        descrizioneBreve:
+          maxLength: 200
+          minLength: 0
+          type: string
+        descrizioneLunga:
+          maxLength: 2000
+          minLength: 0
+          type: string
+        linkFacebook:
+          type: string
+        linkYoutube:
+          type: string
+        linkInstagram:
+          type: string
+        linkWebsite:
+          type: string
+        linkTicToc:
+          type: string
+        tipoProdotto:
+          type: string
+        password:
+          maxLength: 2147483647
+          minLength: 8
+          type: string
+        image1:
+          type: string
+        image2:
+          type: string
+        image3:
+          type: string
+        image4:
+          type: string
+        image5:
+          type: string
     AziendaDTO:
       type: object
       properties:
         id:
           type: string
           format: uuid
-        nome:
+        nomeProduttore:
           type: string
-        numeroPubblico:
-          type: string
-        email:
-          type: string
-        produttore:
-          $ref: '#/components/schemas/ProduttoreDTO'
-        comune:
-          $ref: '#/components/schemas/ComuneDTO'
-        provincia:
-          $ref: '#/components/schemas/ProvinciaDTO'
-    AziendaCategoriaUpdateDTO:
-      required:
-      - azienda
-      - categoria
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        azienda:
-          type: string
-          format: uuid
-        categoria:
-          type: string
-          format: uuid
-    AziendaCategoriaDTO:
-      type: object
-      properties:
-        azienda:
-          $ref: '#/components/schemas/AziendaDTO'
-        categoria:
-          $ref: '#/components/schemas/CategoriaDTO'
-    ProvinciaCreateDTO:
-      required:
-      - nome
-      type: object
-      properties:
-        nome:
-          type: string
-    ProduttoreCreateDTO:
-      required:
-      - codiceFiscale
-      - cognome
-      - email
-      - nome
-      - numeroPrivato
-      - partitaIva
-      type: object
-      properties:
-        nome:
-          type: string
-        cognome:
-          type: string
-        codiceFiscale:
-          type: string
-        numeroPrivato:
-          type: string
-        email:
+        cognomeProduttore:
           type: string
         partitaIva:
           type: string
+        numeroPrivato:
+          type: string
+        emailPrivata:
+          type: string
+        codiceFiscale:
+          type: string
         tesseramentoAttivo:
           type: boolean
-    ComuneCreateDTO:
-      required:
-      - nome
-      - provincia
-      type: object
-      properties:
-        nome:
+        nomeAzienda:
+          type: string
+        ragioneSociale:
+          type: string
+        numeroAzienda:
+          type: string
+        emailAzienda:
+          type: string
+        comune:
           type: string
         provincia:
           type: string
-          format: uuid
-    CategoriaCreateDTO:
-      required:
-      - nome
-      type: object
-      properties:
-        nome:
+        indirizzo:
           type: string
-        descrizione:
+        cap:
+          type: string
+        descrizioneBreve:
+          type: string
+        descrizioneLunga:
+          type: string
+        linkFacebook:
+          type: string
+        linkYoutube:
+          type: string
+        linkInstagram:
+          type: string
+        linkWebsite:
+          type: string
+        linkTicToc:
+          type: string
+        tipoProdotto:
+          type: string
+        password:
+          type: string
+        image1:
+          type: string
+        image2:
+          type: string
+        image3:
+          type: string
+        image4:
+          type: string
+        image5:
           type: string
     AziendaCreateDTO:
       required:
+      - cap
+      - codiceFiscale
+      - cognomeProduttore
       - comune
-      - email
-      - nome
-      - numeroPubblico
-      - produttore
+      - emailAzienda
+      - emailPrivata
+      - indirizzo
+      - nomeAzienda
+      - nomeProduttore
+      - numeroAzienda
+      - numeroPrivato
+      - partitaIva
+      - password
       - provincia
+      - ragioneSociale
       type: object
       properties:
-        nome:
+        nomeProduttore:
           type: string
-        numeroPubblico:
+        cognomeProduttore:
           type: string
-        email:
+        partitaIva:
+          maxLength: 11
+          minLength: 11
           type: string
-        produttore:
+        numeroPrivato:
           type: string
-          format: uuid
+        emailPrivata:
+          type: string
+        codiceFiscale:
+          maxLength: 16
+          minLength: 16
+          type: string
+        nomeAzienda:
+          type: string
+        ragioneSociale:
+          type: string
+        numeroAzienda:
+          type: string
+        emailAzienda:
+          type: string
         comune:
           type: string
-          format: uuid
         provincia:
           type: string
-          format: uuid
-    AziendaCategoriaCreateDTO:
-      required:
-      - azienda
-      - categoria
-      type: object
-      properties:
-        azienda:
+        indirizzo:
           type: string
-          format: uuid
-        categoria:
+        cap:
           type: string
-          format: uuid
-    ProvinciaCriteria:
+        password:
+          maxLength: 2147483647
+          minLength: 8
+          type: string
+    AziendaCriteria:
       type: object
       properties:
         id:
@@ -745,7 +365,15 @@ components:
           items:
             type: string
             format: uuid
-        nome:
+        nomeAzienda:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+        provincia:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringFilter'
+        tipoProdotto:
           type: array
           items:
             $ref: '#/components/schemas/StringFilter'
@@ -785,233 +413,6 @@ components:
           type: array
           items:
             type: string
-    PageProvinciaDTO:
-      type: object
-      properties:
-        totalElements:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int32
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProvinciaDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        empty:
-          type: boolean
-    PageableObject:
-      type: object
-      properties:
-        offset:
-          type: integer
-          format: int64
-        sort:
-          $ref: '#/components/schemas/SortObject'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        paged:
-          type: boolean
-        unpaged:
-          type: boolean
-    SortObject:
-      type: object
-      properties:
-        empty:
-          type: boolean
-        sorted:
-          type: boolean
-        unsorted:
-          type: boolean
-    ProduttoreCriteria:
-      type: object
-      properties:
-        id:
-          type: array
-          items:
-            type: string
-            format: uuid
-        nome:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringFilter'
-        cognome:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringFilter'
-    PageProduttoreDTO:
-      type: object
-      properties:
-        totalElements:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int32
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProduttoreDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        empty:
-          type: boolean
-    ComuneCriteria:
-      type: object
-      properties:
-        id:
-          type: array
-          items:
-            type: string
-            format: uuid
-        nome:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringFilter'
-        provincia:
-          type: array
-          items:
-            type: string
-            format: uuid
-    PageComuneDTO:
-      type: object
-      properties:
-        totalElements:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int32
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/ComuneDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        empty:
-          type: boolean
-    CategoriaCriteria:
-      type: object
-      properties:
-        id:
-          type: array
-          items:
-            type: string
-            format: uuid
-        nome:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringFilter'
-    PageCategoriaDTO:
-      type: object
-      properties:
-        totalElements:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int32
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/CategoriaDTO'
-        number:
-          type: integer
-          format: int32
-        sort:
-          $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
-        empty:
-          type: boolean
-    AziendaCriteria:
-      type: object
-      properties:
-        id:
-          type: array
-          items:
-            type: string
-            format: uuid
-        nome:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringFilter'
-        produttore:
-          type: array
-          items:
-            type: string
-            format: uuid
-        comune:
-          type: array
-          items:
-            type: string
-            format: uuid
-        provincia:
-          type: array
-          items:
-            type: string
-            format: uuid
     PageAziendaDTO:
       type: object
       properties:
@@ -1033,64 +434,41 @@ components:
           format: int32
         sort:
           $ref: '#/components/schemas/SortObject'
+        numberOfElements:
+          type: integer
+          format: int32
         first:
           type: boolean
         last:
           type: boolean
-        numberOfElements:
-          type: integer
-          format: int32
         pageable:
           $ref: '#/components/schemas/PageableObject'
         empty:
           type: boolean
-    AziendaCategoriaCriteria:
+    PageableObject:
       type: object
       properties:
-        id:
-          type: array
-          items:
-            type: string
-            format: uuid
-        azienda:
-          type: array
-          items:
-            type: string
-            format: uuid
-        categoria:
-          type: array
-          items:
-            type: string
-            format: uuid
-    PageAziendaCategoriaDTO:
-      type: object
-      properties:
-        totalElements:
+        offset:
           type: integer
           format: int64
-        totalPages:
-          type: integer
-          format: int32
-        size:
-          type: integer
-          format: int32
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/AziendaCategoriaDTO'
-        number:
-          type: integer
-          format: int32
         sort:
           $ref: '#/components/schemas/SortObject'
-        first:
-          type: boolean
-        last:
-          type: boolean
-        numberOfElements:
+        pageNumber:
           type: integer
           format: int32
-        pageable:
-          $ref: '#/components/schemas/PageableObject'
+        pageSize:
+          type: integer
+          format: int32
+        unpaged:
+          type: boolean
+        paged:
+          type: boolean
+    SortObject:
+      type: object
+      properties:
         empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
           type: boolean

@@ -1,5 +1,9 @@
 # PnmFrontend
 
+## Run to generate API based on backend .yaml file
+openapi-generator-cli generate -g typescript-angular -i libs/api/produttori-service/definitions/api-docs.yaml -o libs/api/produttori-service/src/lib -c libs/api/produttori-service/definitions/produttori-service-config.json
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
 ## Development server

@@ -12,11 +12,20 @@
 
 
 export interface AziendaCreateDTO { 
-    nome: string;
-    numeroPubblico: string;
-    email: string;
-    produttore: string;
+    nomeProduttore: string;
+    cognomeProduttore: string;
+    partitaIva: string;
+    numeroPrivato: string;
+    emailPrivata: string;
+    codiceFiscale: string;
+    nomeAzienda: string;
+    ragioneSociale: string;
+    numeroAzienda: string;
+    emailAzienda: string;
     comune: string;
     provincia: string;
+    indirizzo: string;
+    cap: string;
+    password: string;
 }
 

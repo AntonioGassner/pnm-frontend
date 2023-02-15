@@ -14,6 +14,7 @@
                                 ngModel
                                 name="nomeProduttore"
                                 required
+                                placeholder="nomeProduttore"
                                 #nomeProduttore="ngModel">
                     </div>
                     <span class="help-block"
@@ -27,6 +28,7 @@
                                 ngModel
                                 name="cognomeProduttore"
                                 required
+                                placeholder="cognomeProduttore"
                                 #cognomeProduttore="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!cognomeProduttore.valid && cognomeProduttore.touched">Per la registraziona abbiamo bisogno del cognome </span>
@@ -39,6 +41,7 @@
                                 ngModel
                                 required
                                 name="partitaIva"
+                                placeholder="partitaIva"
                                 #partitaIva="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Per la registrazione abbiamo bisogno della Partita IVA</span>
@@ -51,6 +54,7 @@
                                 ngModel
                                 required
                                 name="codiceFiscale"
+                                placeholder="codiceFiscale"
                                 #codiceFiscale="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del Codice Fiscale</span>
@@ -63,6 +67,7 @@
                                 ngModel
                                 required
                                 name="numeroPrivato"
+                                placeholder="numeroPrivato"
                                 #numeroPrivato="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">Per la registrazione abbiamo bisogno di un recapito telefonico</span>
@@ -76,11 +81,12 @@
                                 required
                                 name="emailPrivata"
                                 email
+                                placeholder="emailPrivata"
                                 #emailPrivata="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!emailPrivata.valid && emailPrivata.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
                     <div class="col-10">
-                        <label for="nomeAzienda" class="form-label">Email</label>
+                        <label for="nomeAzienda" class="form-label">nomeAzienda</label>
                         <input
                                 type="text"
                                 id="nomeAzienda"
@@ -88,14 +94,119 @@
                                 ngModel
                                 required
                                 name="nomeAzienda"
-                                email
+                                placeholder="nomeAzienda"
                                 #nomeAzienda="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!nomeAzienda.valid && nomeAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="ragioneSociale" class="form-label">ragioneSociale</label>
+                        <input
+                                type="text"
+                                id="ragioneSociale"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="ragioneSociale"
+                                placeholder="ragioneSociale"
+                                #ragioneSociale="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!ragioneSociale.valid && ragioneSociale.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="numeroAzienda" class="form-label">numeroAzienda</label>
+                        <input
+                                type="text"
+                                id="numeroAzienda"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="numeroAzienda"
+                                placeholder="numeroAzienda"
+                                #numeroAzienda="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!numeroAzienda.valid && numeroAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="emailAzienda" class="form-label">emailAzienda</label>
+                        <input
+                                type="text"
+                                id="emailAzienda"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="emailAzienda"
+                                email
+                                placeholder="emailAzienda"
+                                #emailAzienda="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!emailAzienda.valid && emailAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="comune" class="form-label">comune</label>
+                        <input
+                                type="text"
+                                id="comune"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="comune"
+                                placeholder="comune"
+                                #comune="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!comune.valid && comune.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="provincia" class="form-label">provincia</label>
+                        <input
+                                type="text"
+                                id="provincia"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="provincia"
+                                placeholder="provincia"
+                                #provincia="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!provincia.valid && provincia.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="indirizzo" class="form-label">indirizzo</label>
+                        <input
+                                type="text"
+                                id="indirizzo"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="indirizzo"
+                                placeholder="indirizzo"
+                                #indirizzo="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!indirizzo.valid && indirizzo.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="cap" class="form-label">cap</label>
+                        <input
+                                type="text"
+                                id="cap"
+                                class="form-control"
+                                ngModel
+                                name="cap"
+                                value="cap"
+                                #cap="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!cap.valid && cap.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="password" class="form-label">password</label>
+                        <input
+                                type="text"
+                                id="password"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="password"
+                                placeholder="password"
+                                #password="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!password.valid && password.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
 
                 </div>
                 <hr class="my-4">
-                <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!rf.valid">Register User</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" >Register User</button>
+<!--                [disabled]="!rf.valid"-->
             </form>
         </div>
     </main>

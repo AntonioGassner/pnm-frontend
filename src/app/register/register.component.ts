@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
         password: '',
     }
 
+
     constructor(
         private service: AziendaRestAdapterService
     ) {
@@ -65,22 +66,39 @@ export class RegisterComponent implements OnInit {
 
     createRemote(): Observable<AziendaDTO> {
         let item: AziendaCreateDTO = {
-            nomeProduttore: this.registerForm?.value.produttore.nomeProduttore,
-            cognomeProduttore: this.registerForm?.value.produttore.cognomeProduttore,
-            partitaIva: this.registerForm?.value.produttore.partitaIva,
-            numeroPrivato: this.registerForm?.value.produttore.numeroPrivato,
-            emailPrivata: this.registerForm?.value.produttore.emailPrivata,
-            codiceFiscale: this.registerForm?.value.produttore.codiceFiscale,
-            nomeAzienda: this.registerForm?.value.produttore.nomeAzienda,
-            ragioneSociale: this.registerForm?.value.produttore.ragioneSociale,
-            numeroAzienda: this.registerForm?.value.produttore.numeroAzienda,
-            emailAzienda: this.registerForm?.value.produttore.emailAzienda,
-            comune: this.registerForm?.value.produttore.comune,
-            provincia: this.registerForm?.value.produttore.provincia,
-            indirizzo: this.registerForm?.value.produttore.indirizzo,
-            cap: this.registerForm?.value.produttore.cap,
-            password: this.registerForm?.value.produttore.password,
-        };
+        //     nomeProduttore: this.registerForm?.value.produttore.nomeProduttore,
+        //     cognomeProduttore: this.registerForm?.value.produttore.cognomeProduttore,
+        //     partitaIva: this.registerForm?.value.produttore.partitaIva,
+        //     numeroPrivato: this.registerForm?.value.produttore.numeroPrivato,
+        //     emailPrivata: this.registerForm?.value.produttore.emailPrivata,
+        //     codiceFiscale: this.registerForm?.value.produttore.codiceFiscale,
+        //     nomeAzienda: this.registerForm?.value.produttore.nomeAzienda,
+        //     ragioneSociale: this.registerForm?.value.produttore.ragioneSociale,
+        //     numeroAzienda: this.registerForm?.value.produttore.numeroAzienda,
+        //     emailAzienda: this.registerForm?.value.produttore.emailAzienda,
+        //     comune: this.registerForm?.value.produttore.comune,
+        //     provincia: this.registerForm?.value.produttore.provincia,
+        //     indirizzo: this.registerForm?.value.produttore.indirizzo,
+        //     cap: this.registerForm?.value.produttore.cap,
+        //     password: this.registerForm?.value.produttore.password,
+        // };
+
+            nomeProduttore: 'nomeProduttore',
+            cognomeProduttore: 'cognomeProduttore',
+            partitaIva: '12345678901',
+            numeroPrivato: 'numeroPrivato',
+            emailPrivata: 'emailPrivata@gmail.com',
+            codiceFiscale: 'gssnnb98s02z112a',
+            nomeAzienda: 'nomeAzienda',
+            ragioneSociale: 'ragioneSociale',
+            numeroAzienda: 'numeroAzienda',
+            emailAzienda: 'emailPrivata@gmail.com',
+            comune: 'comune',
+            provincia: 'provincia',
+            indirizzo: 'indirizzo',
+            cap: 'cap',
+            password: 'password',
+        }
         console.log(this.registerForm)
         this.submitted = true;
         this.registerForm.reset();

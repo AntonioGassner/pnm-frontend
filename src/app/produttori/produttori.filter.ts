@@ -2,6 +2,7 @@
 
 export interface ProduttoriFilter {
   id?: string;
-  nome?: string;
-  cognome?: string;
+  nomeAzienda?: string;
+  provincia?: string;
+  tipoProdotto?: string;
 }

@@ -8,12 +8,12 @@
         <div class="form-floating" id="produttore" ngModelGroup="produttore">
             <input type="email"
                    class="form-control"
-                   id="nome"
+                   id="email"
                    ngModel
-                   name="nome"
+                   name="email"
                    placeholder="name@example.com"
                    #nome="ngModel">
-            <label for="nome">Email address</label>
+            <label for="email">Email address</label>
         </div>
         <span class="help-block"
               *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>
@@ -29,6 +29,18 @@
         </div>
         <button class="w-100 btn btn-lg btn-warning" type="submit">Accedi</button>
     </form>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <p>{{produttore.nomeProduttore}}</p>
+                <p>{{produttore.cognomeProduttore}}</p>
+                <p>{{produttore.codiceFiscale}}</p>
+                <p>{{produttore.numeroPrivato}}</p>
+                <p>{{produttore.emailPrivata}}</p>
+                <p>{{produttore.partitaIva}}</p>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 

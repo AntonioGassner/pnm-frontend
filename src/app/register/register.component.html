@@ -6,30 +6,45 @@
             <form (ngSubmit)="onSubmit()" #rf="ngForm">
                 <div class="row g-3" id="produttore" ngModelGroup="produttore">
                     <div class="col-10">
-                        <label for="nome" class="form-label">Nome</label>
+                        <label for="nomeProduttore" class="form-label">Nome</label>
                         <input
                                 type="text"
-                                id="nome"
+                                id="nomeProduttore"
                                 class="form-control"
                                 ngModel
-                                name="nome"
+                                name="nomeProduttore"
                                 required
-                                #nome="ngModel">
+                                placeholder="nomeProduttore"
+                                #nomeProduttore="ngModel">
                     </div>
                     <span class="help-block"
-                          *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>
+                          *ngIf="!nomeProduttore.valid && nomeProduttore.touched">Per la registraziona abbiamo bisogno del nome </span>
                     <div class="col-10">
-                        <label for="cognome" class="form-label">Cognome</label>
+                        <label for="cognomeProduttore" class="form-label">Cognome</label>
                         <input
                                 type="text"
-                                id="cognome"
+                                id="cognomeProduttore"
                                 class="form-control"
                                 ngModel
-                                name="cognome"
+                                name="cognomeProduttore"
                                 required
-                                #cognome="ngModel">
+                                placeholder="cognomeProduttore"
+                                #cognomeProduttore="ngModel">
                     </div>
-                    <span class="help-block" *ngIf="!cognome.valid && cognome.touched">Per la registraziona abbiamo del cognome </span>
+                    <span class="help-block" *ngIf="!cognomeProduttore.valid && cognomeProduttore.touched">Per la registraziona abbiamo bisogno del cognome </span>
+                    <div class="col-10">
+                        <label for="partitaIva" class="form-label">Partita IVA</label>
+                        <input
+                                type="text"
+                                id="partitaIva"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="partitaIva"
+                                placeholder="partitaIva"
+                                #partitaIva="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Per la registrazione abbiamo bisogno della Partita IVA</span>
                     <div class="col-10">
                         <label for="codiceFiscale" class="form-label">Codice Fiscale </label>
                         <input
@@ -39,6 +54,7 @@
                                 ngModel
                                 required
                                 name="codiceFiscale"
+                                placeholder="codiceFiscale"
                                 #codiceFiscale="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del Codice Fiscale</span>
@@ -51,38 +67,146 @@
                                 ngModel
                                 required
                                 name="numeroPrivato"
+                                placeholder="numeroPrivato"
                                 #numeroPrivato="ngModel">
                     </div>
                     <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">Per la registrazione abbiamo bisogno di un recapito telefonico</span>
-                    <div class="col-10">
-                        <label for="partitaIva" class="form-label">Partita IVA</label>
+                   <div class="col-10">
+                        <label for="emailPrivata" class="form-label">Email</label>
                         <input
                                 type="text"
-                                id="partitaIva"
+                                id="emailPrivata"
                                 class="form-control"
                                 ngModel
                                 required
-                                name="partitaIva"
-                                #partitaIva="ngModel">
-                    </div>
-                    <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Per la registrazione abbiamo bisogno della Partita IVA</span>
-                    <div class="col-10">
-                        <label for="email" class="form-label">Email</label>
-                        <input
-                                type="text"
-                                id="email"
-                                class="form-control"
-                                ngModel
-                                required
-                                name="email"
+                                name="emailPrivata"
                                 email
-                                #email="ngModel">
+                                placeholder="emailPrivata"
+                                #emailPrivata="ngModel">
                     </div>
-                    <span class="help-block" *ngIf="!email.valid && email.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <span class="help-block" *ngIf="!emailPrivata.valid && emailPrivata.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="nomeAzienda" class="form-label">nomeAzienda</label>
+                        <input
+                                type="text"
+                                id="nomeAzienda"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="nomeAzienda"
+                                placeholder="nomeAzienda"
+                                #nomeAzienda="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!nomeAzienda.valid && nomeAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="ragioneSociale" class="form-label">ragioneSociale</label>
+                        <input
+                                type="text"
+                                id="ragioneSociale"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="ragioneSociale"
+                                placeholder="ragioneSociale"
+                                #ragioneSociale="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!ragioneSociale.valid && ragioneSociale.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="numeroAzienda" class="form-label">numeroAzienda</label>
+                        <input
+                                type="text"
+                                id="numeroAzienda"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="numeroAzienda"
+                                placeholder="numeroAzienda"
+                                #numeroAzienda="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!numeroAzienda.valid && numeroAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="emailAzienda" class="form-label">emailAzienda</label>
+                        <input
+                                type="text"
+                                id="emailAzienda"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="emailAzienda"
+                                email
+                                placeholder="emailAzienda"
+                                #emailAzienda="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!emailAzienda.valid && emailAzienda.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="comune" class="form-label">comune</label>
+                        <input
+                                type="text"
+                                id="comune"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="comune"
+                                placeholder="comune"
+                                #comune="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!comune.valid && comune.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="provincia" class="form-label">provincia</label>
+                        <input
+                                type="text"
+                                id="provincia"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="provincia"
+                                placeholder="provincia"
+                                #provincia="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!provincia.valid && provincia.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="indirizzo" class="form-label">indirizzo</label>
+                        <input
+                                type="text"
+                                id="indirizzo"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="indirizzo"
+                                placeholder="indirizzo"
+                                #indirizzo="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!indirizzo.valid && indirizzo.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="cap" class="form-label">cap</label>
+                        <input
+                                type="text"
+                                id="cap"
+                                class="form-control"
+                                ngModel
+                                name="cap"
+                                value="cap"
+                                #cap="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!cap.valid && cap.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
+                    <div class="col-10">
+                        <label for="password" class="form-label">password</label>
+                        <input
+                                type="text"
+                                id="password"
+                                class="form-control"
+                                ngModel
+                                required
+                                name="password"
+                                placeholder="password"
+                                #password="ngModel">
+                    </div>
+                    <span class="help-block" *ngIf="!password.valid && password.touched">Per la registrazione abbiamo bisogno dell'indirizzo email</span>
 
                 </div>
                 <hr class="my-4">
-                <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!rf.valid">Register User</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit" >Register User</button>
+<!--                [disabled]="!rf.valid"-->
             </form>
         </div>
     </main>
@@ -141,121 +265,3 @@
         </div>
         -->
 
-
-<!--<div class="col-md-7 col-lg-8 center">-->
-<!--    <h4 class="mb-3">Registrazione Azienda</h4>-->
-<!--    &lt;!&ndash;    TODO add subtitles nomeazienda, indirizzo, credenzialiaccount&ndash;&gt;-->
-<!--    <form  (ngSubmit)="onSubmit()" #rf="ngForm">-->
-<!--        <div class="row g-3" id="produttore" ngModelGroup="produttore">-->
-<!--            <div class="col-10">-->
-<!--                <label for="codiceFiscale" class="form-label">Partita IVA </label>-->
-<!--                <input-->
-<!--                        type="text"-->
-<!--                        id="codiceFiscale"-->
-<!--                        class="form-control"-->
-<!--                        ngModel-->
-<!--                        required-->
-<!--                        name="codiceFiscale"-->
-<!--                        #codiceFiscale="ngModel">-->
-<!--            </div>-->
-<!--            <span class="help-block" *ngIf="!codiceFiscale.valid && codiceFiscale.touched">Per la registrazione abbiamo bisogno del codiceFiscale</span>-->
-<!--            <div class="col-10">-->
-<!--                <label for="nome" class="form-label">Ragione Sociale</label>-->
-<!--                <input-->
-<!--                        type="text"-->
-<!--                        id="nome"-->
-<!--                        class="form-control"-->
-<!--                        ngModel-->
-<!--                        name="nome"-->
-<!--                        required-->
-<!--                        #nome="ngModel">-->
-<!--            </div>-->
-<!--            <span class="help-block" *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>-->
-<!--            <div class="col-10">-->
-<!--                <label for="address" class="form-label">Indirizzo aziendale:</label>-->
-<!--                <input type="text" class="form-control" id="address" placeholder="Via G. da Procida, 1" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Si prega di inserire un indirizzo valido.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-10">-->
-<!--                <label for="numeroPrivato" class="form-label">Numero di telefono </label>-->
-<!--                <input-->
-<!--                        type="text"-->
-<!--                        id="numeroPrivato"-->
-<!--                        class="form-control"-->
-<!--                        ngModel-->
-<!--                        name="numeroPrivato"-->
-<!--                        #numeroPrivato="ngModel">-->
-<!--            </div>-->
-<!--            <span class="help-block" *ngIf="!numeroPrivato.valid && numeroPrivato.touched">numero obbligatorio</span>-->
-<!--            <div class="col-10">-->
-<!--                <label for="email" class="form-label">Indirizzo e-mail <span class="text-muted"></span></label>-->
-<!--                <input type="text" class="form-control" id="email" placeholder="you@example.com" value="" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Si prega di inserire un indirizzo e-mail valido.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-10">-->
-<!--                <label for="repemail" class="form-label">Ripeti indirizzo e-mail <span class="text-muted"></span></label>-->
-<!--                <input type="text" class="form-control" id="repemail" placeholder="you@example.com" value="" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Si prega di inserire un indirizzo e-mail valido.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-10">-->
-<!--                <label for="password" class="form-label">Inserisci password: <span class="text-muted"></span></label>-->
-<!--                <input type="password" class="form-control" id="password" placeholder="passWordSample123" value="" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Si prega di inserire una password valida.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-10">-->
-<!--                <label for="reppassword" class="form-label">Ripeti password: <span class="text-muted"></span></label>-->
-<!--                <input type="password" class="form-control" id="reppassword" placeholder="passWordSample123" value="" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Si prega di inserire una password valida.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-5">-->
-<!--                <label for="country" class="form-label">Regione</label>-->
-<!--                <select class="form-select" id="country" required>-->
-<!--                    <option value="">Seleziona...</option>-->
-<!--                    <option>Marche</option>-->
-<!--                    <option>Lazio</option>-->
-<!--                    <option>Umbria</option>-->
-<!--                    <option>Toscana</option>-->
-<!--                    <option>Emilia-Romagna</option>-->
-<!--                    <option>Campania</option>-->
-<!--                    <option>Molise</option>-->
-<!--                    <option>Abruzzo</option>-->
-<!--                    <option>Basilicata</option>-->
-<!--                    &lt;!&ndash;                                TODO should I add all regions? &ndash;&gt;-->
-<!--                    <option>Puglia</option>-->
-<!--                </select>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Please select a valid country.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-4">-->
-<!--                <label for="state" class="form-label">State</label>-->
-<!--                <select class="form-select" id="state" required>-->
-<!--                    <option value="">Choose...</option>-->
-<!--                    <option>California</option>-->
-<!--                </select>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Please provide a valid state.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-3">-->
-<!--                <label for="zip" class="form-label">Zip</label>-->
-<!--                <input type="text" class="form-control" id="zip" placeholder="" required>-->
-<!--                <div class="invalid-feedback">-->
-<!--                    Zip code required.-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <hr class="my-4">-->
-<!--        <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="!rf.valid">Register User</button>-->
-<!--    </form>-->
-<!--</div>-->

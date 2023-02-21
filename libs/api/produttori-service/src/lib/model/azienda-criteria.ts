@@ -14,9 +14,8 @@ import { StringFilter } from './string-filter';
 
 export interface AziendaCriteria { 
     id?: Array<string>;
-    nome?: Array<StringFilter>;
-    produttore?: Array<string>;
-    comune?: Array<string>;
-    provincia?: Array<string>;
+    nomeAzienda?: Array<StringFilter>;
+    provincia?: Array<StringFilter>;
+    tipoProdotto?: Array<StringFilter>;
 }
 

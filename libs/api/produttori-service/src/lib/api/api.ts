@@ -1,13 +1,3 @@
-export * from './azienda-categoria-rest-adapter.service';
-import { AziendaCategoriaRestAdapterService } from './azienda-categoria-rest-adapter.service';
 export * from './azienda-rest-adapter.service';
 import { AziendaRestAdapterService } from './azienda-rest-adapter.service';
-export * from './categoria-rest-adapter.service';
-import { CategoriaRestAdapterService } from './categoria-rest-adapter.service';
-export * from './comune-rest-adapter.service';
-import { ComuneRestAdapterService } from './comune-rest-adapter.service';
-export * from './produttore-rest-adapter.service';
-import { ProduttoreRestAdapterService } from './produttore-rest-adapter.service';
-export * from './provincia-rest-adapter.service';
-import { ProvinciaRestAdapterService } from './provincia-rest-adapter.service';
-export const APIS = [AziendaCategoriaRestAdapterService, AziendaRestAdapterService, CategoriaRestAdapterService, ComuneRestAdapterService, ProduttoreRestAdapterService, ProvinciaRestAdapterService];
+export const APIS = [AziendaRestAdapterService];

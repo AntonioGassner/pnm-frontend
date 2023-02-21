@@ -15,6 +15,7 @@ import {map, Observable} from "rxjs";
 export class LoginComponent implements OnInit {
   @ViewChild('lf') loginForm: NgForm;
   loginSuccesful: boolean = false;
+
   produttore: AziendaDTO = {
     id: '',
     nomeProduttore: '',
@@ -43,8 +44,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('onsubmit')
+    console.log( this.loginForm.value.email)
+    console.log(    this.loginForm.value.password)
     let searchResult: Observable<AziendaDTO> = this.searchRemote(this.loginForm.value.email, this.loginForm.value.password);
 
+    console.log(this.loginForm.value.password)
     searchResult.subscribe(data => {
       if(data.id !== undefined) {
         this.produttore.id = data.id;
@@ -68,6 +73,12 @@ export class LoginComponent implements OnInit {
   }
 
   searchRemote(user: string, pass: string):  Observable<AziendaDTO> {
+   console.log( this.loginForm.value.email)
+    console.log(    this.loginForm.value.password)
+    console.log( user)
+    console.log( pass)
+
+
     return this.service.validateLogin(user, pass).pipe(
         map((v) => v!)
     );

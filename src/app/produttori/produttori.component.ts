@@ -3,10 +3,9 @@ import {map, Observable} from "rxjs";
 import {
     AziendaCriteria, AziendaDTO, AziendaRestAdapterService, PageAziendaDTO, StringFilter
 } from "../../../libs/api/produttori-service/src/lib";
-import {IListPagination, IListSort, ITestSort, serializeSort} from "../utils/common.model";
+import {IListPagination, ITestSort} from "../utils/common.model";
 import {ProduttoriFilter} from "./produttori.filter";
 import {NgForm} from "@angular/forms";
-import {storeOutputsWatcherSubscription} from "nx/src/daemon/server/shutdown-utils";
 
 @Component({
     selector: 'app-produttori',
@@ -23,6 +22,7 @@ export class ProduttoriComponent {
     }
 
     ngOnInit(): void {
+        console.log('onInit')
         let filter: ProduttoriFilter = {
         };
         let pagination: IListPagination = {
@@ -43,9 +43,12 @@ export class ProduttoriComponent {
         let searchResult: Observable<PageAziendaDTO> = this.service.searchAzienda(criteria, pageable).pipe(
             map((v) => v!)
         );
-console.log('message')
         searchResult.subscribe(data => {
             this.produttori = data.content
+            console.log(data)
+            data.content?.forEach(element =>{
+                console.log(element.comune)
+            })
         })
     }
 
@@ -80,11 +83,9 @@ console.log('message')
         let sort: ITestSort[] = [{
             direction: 'asc'
         }]
-        // console.log(criteria)
         let searchResult: Observable<PageAziendaDTO> = this.searchRemote(criteria, pagination, sort);
         searchResult.subscribe(data => {
             this.produttori = data.content
-            // console.log(data)
         })
 
     }

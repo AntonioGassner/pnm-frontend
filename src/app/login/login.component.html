@@ -1,26 +1,38 @@
 <app-navbar></app-navbar>
 <body class="text-center">
 <main class="form-signin w-100 m-auto">
+
     <form (ngSubmit)="onSubmit()" #lf="ngForm">
         <img class="mb-4" src="assets/img/logo.png"  height="130" width="320" >
         <h1 class="h3 mb-3 fw-normal">Inserire le credenziali</h1>
 
-        <div class="form-floating" id="produttore" ngModelGroup="produttore">
-            <input type="email"
-                   class="form-control"
-                   id="email"
-                   ngModel
-                   name="email"
-                   placeholder="name@example.com"
-                   #nome="ngModel">
-            <label for="email">Email address</label>
+        <div class="col-10">
+            <label for="email" class="form-label">Email</label>
+            <input
+                    type="text"
+                    id="email"
+                    class="form-control"
+                    ngModel
+                    name="email"
+                    required
+                    placeholder="email"
+                    #email="ngModel">
         </div>
         <span class="help-block"
-              *ngIf="!nome.valid && nome.touched">Per la registraziona abbiamo del nome </span>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+              *ngIf="!email.valid && email.touched">Per effettuare il login abbiamo bisogno della email privata </span>
+        <div class="col-10">
+            <label for="password" class="form-label">Password</label>
+            <input
+                    type="text"
+                    id="password"
+                    class="form-control"
+                    ngModel
+                    required
+                    name="password"
+                    placeholder="password"
+                    #password="ngModel">
         </div>
+        <span class="help-block" *ngIf="!password.valid && password.touched">Per effettuare il login abbiamo bisogno della password </span>
 
         <div class="checkbox mb-3">
             <label>

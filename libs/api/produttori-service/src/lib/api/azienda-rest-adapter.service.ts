@@ -136,8 +136,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -197,8 +195,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -250,8 +246,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -310,8 +304,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -377,8 +369,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -439,8 +429,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 
@@ -506,8 +494,6 @@ export class AziendaRestAdapterService {
                 responseType_ = 'text';
             } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
                 responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
             }
         }
 

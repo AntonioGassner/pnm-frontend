@@ -5,6 +5,7 @@ import {
     AziendaRestAdapterService
 } from "../../../libs/api/produttori-service/src/lib";
 import {map, Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-register',
@@ -34,11 +35,45 @@ export class RegisterComponent implements OnInit {
     }
 
     constructor(
-        private service: AziendaRestAdapterService
-    ) {
+        private service: AziendaRestAdapterService,
+    private router: Router
+
+) {
     }
 
     ngOnInit(): void {
+        this.test();
+    }
+
+    test() {
+        let output: Observable<AziendaDTO> = this.createRemote();
+        output.subscribe(data => {
+            this.produttore.id = data.id;
+            this.produttore.nomeProduttore = data.nomeProduttore;
+            this.produttore.cognomeProduttore = data.cognomeProduttore;
+            this.produttore.partitaIva = data.partitaIva;
+            this.produttore.numeroPrivato = data.numeroPrivato;
+            this.produttore.emailPrivata = data.emailPrivata;
+            this.produttore.codiceFiscale = data.codiceFiscale;
+            this.produttore.nomeAzienda = data.nomeAzienda;
+            this.produttore.ragioneSociale = data.ragioneSociale;
+            this.produttore.numeroAzienda = data.numeroAzienda;
+            this.produttore.emailAzienda = data.emailAzienda;
+            this.produttore.comune = data.comune;
+            this.produttore.provincia = data.provincia;
+            this.produttore.indirizzo = data.indirizzo;
+            this.produttore.cap = data.cap;
+            this.produttore.password = data.password;
+            console.log('data')
+            console.log(data.id)
+
+        });
+        console.log('produttore')
+        console.log(this.produttore.id)
+        if(this.produttore.id){
+            this.router.navigate(['/login']);
+
+        }
     }
 
     onSubmit() {
@@ -56,42 +91,49 @@ export class RegisterComponent implements OnInit {
             this.produttore.numeroAzienda = data.numeroAzienda;
             this.produttore.emailAzienda = data.emailAzienda;
             this.produttore.comune = data.comune;
-
-            switch(data.provincia) {
-                case "Ancona": {
-                    this.produttore.provincia = 'AN';
-                    break;
-                }
-                case "Ascoli Piceno": {
-                    this.produttore.provincia = 'AP';
-                    break;
-                }
-                case "Fermo": {
-                    this.produttore.provincia = 'FM';
-                    break;
-                }
-                case "Macerata": {
-                    this.produttore.provincia = 'MC';
-                    break;
-                }
-                case "Pesaro e Urbino": {
-                    this.produttore.provincia = 'PU';
-                    break;
-                }
-                default: {
-                    this.produttore.provincia = this.registerForm.value.provincia;
-                    break;
-                }
-            }
-
             this.produttore.provincia = data.provincia;
             this.produttore.indirizzo = data.indirizzo;
             this.produttore.cap = data.cap;
             this.produttore.password = data.password;
+            console.log('data')
+            console.log(data.id)
+
         });
+        console.log('produttore')
+        console.log(this.produttore.id)
+        if(this.produttore.id){
+            this.router.navigate(['/login']);
+
+        }
     }
 
     createRemote(): Observable<AziendaDTO> {
+        switch(this.registerForm.value.produttore.provincia) {
+            case "Ancona": {
+                this.registerForm.value.produttore.provincia = 'AN';
+                break;
+            }
+            case "Ascoli Piceno": {
+                this.registerForm.value.produttore.provincia = 'AP';
+                break;
+            }
+            case "Fermo": {
+                this.registerForm.value.produttore.provincia = 'FM';
+                break;
+            }
+            case "Macerata": {
+                this.registerForm.value.produttore.provincia = 'MC';
+                break;
+            }
+            case "Pesaro e Urbino": {
+                this.registerForm.value.produttore.provincia = 'PU';
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+
         let item: AziendaCreateDTO = {
             nomeProduttore: this.registerForm?.value.produttore.nomeProduttore,
             cognomeProduttore: this.registerForm?.value.produttore.cognomeProduttore,

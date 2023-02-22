@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {
     AziendaCriteria, AziendaDTO, AziendaRestAdapterService, PageAziendaDTO, StringFilter
@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
     templateUrl: './produttori.component.html',
     styleUrls: ['./produttori.component.css']
 })
-export class ProduttoriComponent {
+export class ProduttoriComponent implements OnInit  {
     @ViewChild('sf') searchForm: NgForm;
     produttori: Array<AziendaDTO> | undefined;
 
@@ -25,7 +25,6 @@ export class ProduttoriComponent {
 
     ngOnInit(): void {
         console.log('onInit')
-        let filter: ProduttoriFilter = {};
         let pagination: IListPagination = {
             limit: 12,
             offset: 0
@@ -44,11 +43,7 @@ export class ProduttoriComponent {
             map((v) => v!)
         );
         searchResult.subscribe(data => {
-            this.produttori = data.content
-            console.log(data)
-            data.content?.forEach(element => {
-                console.log(element.comune)
-            })
+            this.produttori = data.content;
         })
     }
 
@@ -104,17 +99,10 @@ export class ProduttoriComponent {
         );
     }
 
-    viewDettaglio(index: number) {
-        if (this.produttori) {
-            let produttore: AziendaDTO;
-            produttore = this.produttori[index];
-            let n: number = 10;
-            this.router.navigate(['/profilo', 15]);
+    viewDettaglio(id: string | undefined) {
+        if(id){
+            this.router.navigate(['/profilo', id]);
         }
-    }
 
-    getProduttore(index: number): AziendaDTO{
-        // @ts-ignore
-        return this.produttori[index];
     }
 }

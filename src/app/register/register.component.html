@@ -7,7 +7,7 @@
             <p class="lead" style="padding: 3%">La buona alimentazione, la convivialità, la salute e la tutela del patrimonio agroalimentare marchigiano
                 sono da oltre vent'anni tra i nostri principali obiettivi</p>
         </div>
-        <div class="col-md-12 col-lg-8 center">
+        <div class="col-md-auto center">
             <form (ngSubmit)="onSubmit()" #rf="ngForm">
                 <div class="row g-2" id="produttore" ngModelGroup="produttore">
                     <div class="row g-2">
@@ -20,7 +20,7 @@
                                 ngModel
                                 name="nomeProduttore"
                                 required
-                                placeholder="nomeProduttore"
+                                placeholder="Nome"
                                 #nomeProduttore="ngModel">
                         <span class="help-block"
                               *ngIf="!nomeProduttore.valid && nomeProduttore.touched">Inserire nome </span>
@@ -35,7 +35,7 @@
                                 ngModel
                                 name="cognomeProduttore"
                                 required
-                                placeholder="cognomeProduttore"
+                                placeholder="Cognome"
                                 #cognomeProduttore="ngModel">
                         <span class="help-block" *ngIf="!cognomeProduttore.valid && cognomeProduttore.touched">Inserire cognome </span>
                     </div>
@@ -52,7 +52,7 @@
                                 ngModel
                                 required
                                 name="partitaIva"
-                                placeholder="partitaIva"
+                                placeholder="PartitaIva"
                                 #partitaIva="ngModel">
                             <span class="help-block" *ngIf="!partitaIva.valid && partitaIva.touched">Inserire Partita IVA</span>
                         </div>

@@ -6,7 +6,7 @@
         <img class="mb-4" src="assets/img/logo.png"  height="130" width="320" >
         <h1 class="h3 mb-3 fw-normal">Inserire le credenziali</h1>
 
-        <div class="col-10">
+        <div class="form-floating" >
             <label for="email" class="form-label">Email</label>
             <input
                     type="text"
@@ -19,8 +19,9 @@
                     #email="ngModel">
         </div>
         <span class="help-block"
-              *ngIf="!email.valid && email.touched">Per effettuare il login abbiamo bisogno della email privata </span>
-        <div class="col-10">
+              *ngIf="!email.valid && email.touched">Inserire e-mail </span>
+        <p></p>
+        <div class="form-floating">
             <label for="password" class="form-label">Password</label>
             <input
                     type="text"
@@ -32,12 +33,13 @@
                     placeholder="password"
                     #password="ngModel">
         </div>
-        <span class="help-block" *ngIf="!password.valid && password.touched">Per effettuare il login abbiamo bisogno della password </span>
-
+        <span class="help-block" *ngIf="!password.valid && password.touched">Inserire password</span>
+           <p></p>
         <div class="checkbox mb-3">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" value="remember-me"> Ricorda e-mail
             </label>
+
         </div>
         <button class="w-100 btn btn-lg btn-warning" type="submit">Accedi</button>
     </form>

@@ -4,7 +4,7 @@ import {
     AziendaCreateDTO, AziendaDTO,
     AziendaRestAdapterService
 } from "../../../libs/api/produttori-service/src/lib";
-import {map, Observable, Subscription} from "rxjs";
+import {map, Observable} from "rxjs";
 
 @Component({
     selector: 'app-register',
@@ -56,6 +56,34 @@ export class RegisterComponent implements OnInit {
             this.produttore.numeroAzienda = data.numeroAzienda;
             this.produttore.emailAzienda = data.emailAzienda;
             this.produttore.comune = data.comune;
+
+            switch(data.provincia) {
+                case "Ancona": {
+                    this.produttore.provincia = 'AN';
+                    break;
+                }
+                case "Ascoli Piceno": {
+                    this.produttore.provincia = 'AP';
+                    break;
+                }
+                case "Fermo": {
+                    this.produttore.provincia = 'FM';
+                    break;
+                }
+                case "Macerata": {
+                    this.produttore.provincia = 'MC';
+                    break;
+                }
+                case "Pesaro e Urbino": {
+                    this.produttore.provincia = 'PU';
+                    break;
+                }
+                default: {
+                    this.produttore.provincia = this.registerForm.value.provincia;
+                    break;
+                }
+            }
+
             this.produttore.provincia = data.provincia;
             this.produttore.indirizzo = data.indirizzo;
             this.produttore.cap = data.cap;

@@ -19,6 +19,7 @@ import { PresentazioneComponent } from './presentazione/presentazione.component'
 import { ProfiloProduttoreComponent } from './profilo-produttore/profilo-produttore.component';
 import { ErrorComponent } from './error/error.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LogoutComponent } from './logout/logout.component';
     PresentazioneComponent,
     ProfiloProduttoreComponent,
     ErrorComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterSuccessComponent
   ],
   imports: [
     BrowserModule,

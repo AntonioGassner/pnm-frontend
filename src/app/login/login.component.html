@@ -7,7 +7,7 @@
         <h1 class="h3 mb-3 fw-normal">Inserire le credenziali</h1>
 
         <div class="form-floating" >
-            <label for="email" class="form-label">Email</label>
+
             <input
                     type="text"
                     id="email"
@@ -17,12 +17,12 @@
                     required
                     placeholder="email"
                     #email="ngModel">
+            <label for="email">Email </label>
         </div>
         <span class="help-block"
               *ngIf="!email.valid && email.touched">Inserire e-mail </span>
         <p></p>
         <div class="form-floating">
-            <label for="password" class="form-label">Password</label>
             <input
                     type="text"
                     id="password"
@@ -32,6 +32,7 @@
                     name="password"
                     placeholder="password"
                     #password="ngModel">
+            <label for="password">Password</label>
         </div>
         <span class="help-block" *ngIf="!password.valid && password.touched">Inserire password</span>
            <p></p>

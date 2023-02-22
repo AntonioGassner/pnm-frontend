@@ -6,6 +6,7 @@ import {
 import {IListPagination, ITestSort} from "../utils/common.model";
 import {ProduttoriFilter} from "./produttori.filter";
 import {NgForm} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-produttori',
@@ -17,14 +18,14 @@ export class ProduttoriComponent {
     produttori: Array<AziendaDTO> | undefined;
 
     constructor(
-        private service: AziendaRestAdapterService
+        private service: AziendaRestAdapterService,
+        private router: Router
     ) {
     }
 
     ngOnInit(): void {
         console.log('onInit')
-        let filter: ProduttoriFilter = {
-        };
+        let filter: ProduttoriFilter = {};
         let pagination: IListPagination = {
             limit: 12,
             offset: 0
@@ -32,8 +33,7 @@ export class ProduttoriComponent {
         let sort: ITestSort[] = [{
             direction: 'asc'
         }]
-        const criteria: AziendaCriteria = {
-        };
+        const criteria: AziendaCriteria = {};
 
         const pageable = {
             sort: [sort.values().next().value],
@@ -46,30 +46,29 @@ export class ProduttoriComponent {
         searchResult.subscribe(data => {
             this.produttori = data.content
             console.log(data)
-            data.content?.forEach(element =>{
+            data.content?.forEach(element => {
                 console.log(element.comune)
             })
         })
     }
 
     onSubmit() {
-        const criteria: AziendaCriteria = {
-        };
-        if(this.searchForm.value.nomeAzienda !== undefined){
+        const criteria: AziendaCriteria = {};
+        if (this.searchForm.value.nomeAzienda !== undefined) {
             let nomeFilter: StringFilter = {
                 equals: this.searchForm.value.nomeAzienda,
                 _in: ['nomeAzienda']
             }
             criteria.nomeAzienda = [nomeFilter]
         }
-        if(this.searchForm.value.provincia !== undefined){
+        if (this.searchForm.value.provincia !== undefined) {
             let cognomeFilter: StringFilter = {
                 equals: this.searchForm.value.provincia,
                 _in: ['provincia']
             }
             criteria.provincia = [cognomeFilter]
         }
-        if(this.searchForm.value.tipoProdotto !== undefined){
+        if (this.searchForm.value.tipoProdotto !== undefined) {
             let cognomeFilter: StringFilter = {
                 equals: this.searchForm.value.tipoProdotto,
                 _in: ['tipoProdotto']
@@ -103,5 +102,19 @@ export class ProduttoriComponent {
         return this.service.searchAzienda(criteria, pageable).pipe(
             map((v) => v!)
         );
+    }
+
+    viewDettaglio(index: number) {
+        if (this.produttori) {
+            let produttore: AziendaDTO;
+            produttore = this.produttori[index];
+            let n: number = 10;
+            this.router.navigate(['/profilo', 15]);
+        }
+    }
+
+    getProduttore(index: number): AziendaDTO{
+        // @ts-ignore
+        return this.produttori[index];
     }
 }

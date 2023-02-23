@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'register', component:RegisterComponent},
   { path: 'produttori', component: ProduttoriComponent},
   { path: 'presentazione', component: PresentazioneComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'profilo', component: ProfiloProduttoreComponent},
+  { path: 'dashboard/:id', component: DashboardComponent},
+  { path: 'profilo/:id', component: ProfiloProduttoreComponent},
   { path: 'logout', component: LogoutComponent},
   { path: '**', component: ErrorComponent},
 ];

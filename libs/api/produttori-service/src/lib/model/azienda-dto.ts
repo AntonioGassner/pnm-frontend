@@ -38,6 +38,7 @@ export interface AziendaDTO {
     tipoProdotto?: string;
     password?: string;
     image1?: string;
+    // todo image binding
     image2?: string;
     image3?: string;
     image4?: string;

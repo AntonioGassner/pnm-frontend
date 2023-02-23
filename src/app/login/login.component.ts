@@ -6,6 +6,7 @@ import {
 } from "../../../libs/api/produttori-service/src/lib";
 import {NgForm} from "@angular/forms";
 import {map, Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -37,48 +38,26 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-      private service: AziendaRestAdapterService
+      private service: AziendaRestAdapterService,
+      private router: Router
+
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log('onsubmit')
-    console.log( this.loginForm.value.email)
-    console.log(    this.loginForm.value.password)
     let searchResult: Observable<AziendaDTO> = this.searchRemote(this.loginForm.value.email, this.loginForm.value.password);
-
-    console.log(this.loginForm.value.password)
     searchResult.subscribe(data => {
-      if(data.id !== undefined) {
-        this.produttore.id = data.id;
-        this.produttore.nomeProduttore = data.nomeProduttore;
-        this.produttore.cognomeProduttore = data.cognomeProduttore;
-        this.produttore.partitaIva = data.partitaIva;
-        this.produttore.numeroPrivato = data.numeroPrivato;
-        this.produttore.emailPrivata = data.emailPrivata;
-        this.produttore.codiceFiscale = data.codiceFiscale;
-        this.produttore.nomeAzienda = data.nomeAzienda;
-        this.produttore.ragioneSociale = data.ragioneSociale;
-        this.produttore.numeroAzienda = data.numeroAzienda;
-        this.produttore.emailAzienda = data.emailAzienda;
-        this.produttore.comune = data.comune;
-        this.produttore.provincia = data.provincia;
-        this.produttore.indirizzo = data.indirizzo;
-        this.produttore.cap = data.cap;
-        this.produttore.password = data.password;
+      if(data) {
+        this.router.navigate(['/dashboard', data.id]);
+
       }
     });
+
   }
 
   searchRemote(user: string, pass: string):  Observable<AziendaDTO> {
-   console.log( this.loginForm.value.email)
-    console.log(    this.loginForm.value.password)
-    console.log( user)
-    console.log( pass)
-
-
     return this.service.validateLogin(user, pass).pipe(
         map((v) => v!)
     );

@@ -34,7 +34,6 @@ export class ProfiloProduttoreComponent implements OnInit{
   constructor(
       private service: AziendaRestAdapterService,
       private route: ActivatedRoute,
-      private router: Router
   ) { }
 
   ngOnInit(): void {

@@ -30,6 +30,18 @@ export class ProfiloProduttoreComponent implements OnInit{
     indirizzo: '',
     cap: '',
     password: '',
+    descrizioneLunga: '',
+    descrizioneBreve: '',
+    linkFacebook: '',
+    linkInstagram: '',
+    linkWebsite: '',
+    linkTicToc: '',
+    linkYoutube: '',
+    image1: '',
+    image2: '',
+    image3: '',
+    image4: '',
+    image5: '',
   }
   constructor(
       private service: AziendaRestAdapterService,
@@ -70,6 +82,11 @@ let searchResult : Observable<Array<AziendaDTO>> = this.service.findAziendaByIds
         this.produttore.linkWebsite = data.linkWebsite;
         this.produttore.linkTicToc = data.linkTicToc;
         this.produttore.tipoProdotto = data.tipoProdotto;
+        this.produttore.image1 = data.image1;
+        this.produttore.image2 = data.image2;
+        this.produttore.image3 = data.image3;
+        this.produttore.image4 = data.image4;
+        this.produttore.image5 = data.image5;
       }
     });
   }

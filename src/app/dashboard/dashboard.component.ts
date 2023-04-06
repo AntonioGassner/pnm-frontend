@@ -57,7 +57,6 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
       this.findRemote();
-      console.log(this.produttore.numeroPrivato)
   }
 
     findRemote() {
@@ -132,10 +131,13 @@ export class DashboardComponent implements OnInit{
     }
 
     editRemote(): Observable<AziendaDTO> {
+      console.log('editRemote');
+        console.log();
+
         let item: AziendaUpdateDTO = {
             id: this.produttore.id,
             tesseramentoAttivo: this.produttore.tesseramentoAttivo,
-            linkYoutube: this.editForm?.value.produttore.linkYoutube,
+            //linkYoutube: this.editForm?.value.produttore.linkYoutube,
             password: this.editForm?.value.produttore.nomeProduttore,
             nomeProduttore: this.editForm?.value.produttore.nomeProduttore,
             cognomeProduttore: this.editForm?.value.produttore.cognomeProduttore,
@@ -165,16 +167,15 @@ export class DashboardComponent implements OnInit{
             image5: this.editForm?.value.produttore.image5
 
         };
-        console.log(this.editForm)
         this.editForm.reset();
         return this.service.updateAzienda(item).pipe(
             map((v) => v!)
         );
     }
  edit(){
-      console.log()
     if (this.log){
         this.log = false;
+        this.editRemote();
     }else {
         this.log = true;
     }

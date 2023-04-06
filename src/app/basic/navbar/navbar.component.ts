@@ -6,15 +6,11 @@ import {LoginComponent} from "../../login/login.component";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
   log: boolean
 
 
   constructor() { }
-
-  ngOnInit(): void {
-
-  }
 
 
   Logout() {

@@ -3,36 +3,37 @@
     <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-body text-center">
+                <div class="d-flex justify-content-center">
+                    <form (ngSubmit)="edit()">
+                        <button type="submit" class="btn btn-primary" *ngIf="!log">Edit</button>
+                    </form>
+                    <form (ngSubmit)="edit()"  #ef="ngForm">
+                        <button type="submit" class="btn btn-outline-primary ms-1" *ngIf="log">Save</button>
+                    </form>
+                </div>
                 <img src="{{produttore.image2}}" alt="logo"
                      style="width: 150px;">
                 <h5 class="my-3">{{produttore.nomeProduttore}} {{produttore.cognomeProduttore}}</h5>
                 <hr>
                 <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Numero</p>
+                    <div class="col-sm-5">
+                        <p class="mb-0">Numero privato</p>
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-7">
                         <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.numeroPrivato}}</p>
                         <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.numeroPrivato}}">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Email</p>
+                    <div class="col-sm-5">
+                        <p class="mb-0">Email privata</p>
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-7">
                         <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.emailPrivata}}</p>
                         <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.emailPrivata}}">
                     </div>
                 </div>
                 <hr>
-
-                <div class="d-flex justify-content-center mb-2">
-                    <form (ngSubmit)="edit()" #ef="ngForm">
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                        <button type="submit" class="btn btn-outline-primary ms-1">Save</button>
-                    </form>
-                </div>
             </div>
         </div>
         <div class="card mb-4 mb-lg-0">
@@ -63,7 +64,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-3">
-                        <p class="mb-0">Azienda</p>
+                        <p class="mb-0">Nome Azienda</p>
                     </div>
                     <div class="col-sm-9">
                         <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.nomeAzienda}}</p>
@@ -73,21 +74,21 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-3">
-                        <p class="mb-0">Email</p>
+                        <p class="mb-0">Email Aziendale</p>
                     </div>
                     <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">pasticceria@picchio.it</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="">
+                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.emailAzienda}}</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.emailAzienda}}">
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-sm-3">
-                        <p class="mb-0">Recapito Telefonico</p>
+                        <p class="mb-0">Recapito Telefonico Aziendale</p>
                     </div>
                     <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">3456789067</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="">
+                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.numeroAzienda}}</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.numeroAzienda}}">
                     </div>
                 </div>
                 <hr>
@@ -96,8 +97,8 @@
                         <p class="mb-0">Indirizzo</p>
                     </div>
                     <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">Via Panfilo,18</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="">
+                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.indirizzo}}</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.indirizzo}}">
                     </div>
                 </div>
                 <hr>
@@ -106,15 +107,15 @@
                         <p class="mb-0">Città</p>
                     </div>
                     <div class="col-sm-3">
-                        <p *ngIf="!this.log" class="text-muted mb-0">Macerata</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="">
+                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.provincia}}</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.provincia}}">
                     </div>
                     <div class="col-sm-3">
                         <p class="pers">Codice postale</p>
                     </div>
                     <div class="col-sm-3">
-                        <p *ngIf="!this.log" class="text-muted mb-0">62010</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="">
+                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.cap}}</p>
+                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.cap}}">
                     </div>
                 </div>
                 <hr>
@@ -123,10 +124,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. In hac habitasse platea dictumst quisque sagittis purus sit amet.
-                            Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Imperdiet proin fermentum leo vel orci porta non pulvinar. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam.
-                            Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus.
-                            Montes nascetur ridiculus mus mauris. Aenean vel elit scelerisque mauris pellentesque pulvinar. Consectetur libero id faucibus nisl tincidunt. At tellus at urna condimentum.</p>
+                        <p *ngIf="!this.log" class="text-muted mb-0" >{{produttore.descrizioneLunga}}
                         <textarea *ngIf="this.log" class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
                     </div>
                 </div>
@@ -138,14 +136,17 @@
                     <div id="carouselExampleFade" class="carousel slide carousel-fade">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="assets/img/due.jpg" class="d-block w-100" alt="...">
+                                <img src="{{produttore.image3}}" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/due.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-item" >
+                                <img src="{{produttore.image3}}" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item">
-                                <img src="assets/img/due.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-item" >
+                                <img src="{{produttore.image4}}" class="d-block w-100" alt="...">
                             </div>
+<!--                            <div class="carousel-item" >-->
+<!--                                <img src="{{produttore.image5}}" class="d-block w-100" alt="...">-->
+<!--                            </div>-->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -163,72 +164,3 @@
 </div>
 
 <app-footer></app-footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--   <div class="container">
-        <div class="box">
-            <form>
-                <div class="mb-3">
-                    <div class="row justify-content-between">
-                        <div class="col align-self-start">
-                            <h3>Informazioni Account</h3>
-                        </div>
-                        <div class="col-md-3" >
-                            <button class="btn btn-primary" type="submit" >Nuovo progetto</button>
-                        </div>
-                        <div class="col-md-3">
-
-                            <button class="btn btn-dark" type="submit" >Modifica Profilo</button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Ragione Sociale:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Email:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Password:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Indirizzo Aziendale:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Numero di telefono:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>P.IVA:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Regione:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Provincia:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>Comune:</b></label>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"> <b>CAP:</b> 62010</label>
-                </div>
-
-
-
-            </form>
-        </div>
-
-
-    </div> -->

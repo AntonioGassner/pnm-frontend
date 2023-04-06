@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginComponent} from "../../login/login.component";
+import {LoginComponent, } from "../../login/login.component";
 
 @Component({
   selector: 'app-navbar',
@@ -10,19 +10,14 @@ export class NavbarComponent implements OnInit {
   log: boolean
 
 
-  constructor() { }
+  constructor(private login : LoginComponent) { }
 
   ngOnInit(): void {
-
+     this.log =  this.login.loginSuccesful;
   }
 
 
   Logout() {
-    if (this.log){
-      this.log = false;
-    }else {
-      this.log = true;
-    }
-
+    this.log = false;
   }
 }

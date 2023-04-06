@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     searchResult.subscribe(data => {
       if(data) {
         this.router.navigate(['/dashboard', data.id]);
-
+        this.loginSuccesful = true;
       }
     });
 

@@ -1,166 +1,360 @@
 <app-navbar></app-navbar>
-<div class="row">
-    <div class="col-lg-4">
-        <div class="card mb-4">
-            <div class="card-body text-center">
-                <div class="d-flex justify-content-center">
-                    <form (ngSubmit)="edit()">
-                        <button type="submit" class="btn btn-primary" *ngIf="!log">Edit</button>
-                    </form>
-                    <form (ngSubmit)="edit()"  #ef="ngForm">
-                        <button type="submit" class="btn btn-outline-primary ms-1" *ngIf="log">Save</button>
-                    </form>
-                </div>
-                <img src="{{produttore.image2}}" alt="logo"
-                     style="width: 150px;">
-                <h5 class="my-3">{{produttore.nomeProduttore}} {{produttore.cognomeProduttore}}</h5>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <p class="mb-0">Numero privato</p>
-                    </div>
-                    <div class="col-sm-7">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.numeroPrivato}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.numeroPrivato}}">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5">
-                        <p class="mb-0">Email privata</p>
-                    </div>
-                    <div class="col-sm-7">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.emailPrivata}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.emailPrivata}}">
-                    </div>
-                </div>
-                <hr>
+<div class="col-md-auto center">
+    <form (ngSubmit)="onSubmit()" #ef="ngForm">
+        <div class="row g-2" id="produttore" ngModelGroup="produttore">
+            <div class="col-6">
+                <label for="numeroPrivato" class="form-label">Telefono Produttore </label>
+                <input
+                        type="text"
+                        id="numeroPrivato"
+                        class="form-control"
+                        [ngModel]="produttore.numeroPrivato"
+                        name="numeroPrivato"
+                        placeholder="numeroPrivato"
+                        #numeroPrivato="ngModel">
             </div>
-        </div>
-        <div class="card mb-4 mb-lg-0">
-            <div class="card-body p-0">
-                <ul class="list-group list-group-flush rounded-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                        <i class="bi bi-globe bi-lg text-warning"></i>
-                        <p class="mb-0">{{produttore.linkWebsite}}</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                        <i class="bi bi-twitter bi-lg" style="color: #55acee;"></i>
-                        <p class="mb-0">{{produttore.linkTicToc}}</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                        <i class="bi bi-instagram bi-lg" style="color: #ac2bac;"></i>
-                        <p class="mb-0">{{produttore.linkInstagram}}</p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                        <i class="bi bi-facebook bi-lg" style="color: #3b5998;"></i>
-                        <p class="mb-0">{{produttore.linkFacebook}}</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-8">
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Nome Azienda</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.nomeAzienda}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.nomeAzienda}}">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Email Aziendale</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.emailAzienda}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.emailAzienda}}">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Recapito Telefonico Aziendale</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.numeroAzienda}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.numeroAzienda}}">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Indirizzo</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.indirizzo}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.indirizzo}}">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Città</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.provincia}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.provincia}}">
-                    </div>
-                    <div class="col-sm-3">
-                        <p class="pers">Codice postale</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <p *ngIf="!this.log" class="text-muted mb-0">{{produttore.cap}}</p>
-                        <input *ngIf="this.log" type="text" class="form-control" value="{{produttore.cap}}">
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="mb-0">Descrizione</p>
-                </div>
-                <div class="row">
-                    <div class="col-sm-9">
-                        <p *ngIf="!this.log" class="text-muted mb-0" >{{produttore.descrizioneLunga}}
-                        <textarea *ngIf="this.log" class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card mb-auto">
-                    <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{{produttore.image3}}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" >
-                                <img src="{{produttore.image3}}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" >
-                                <img src="{{produttore.image4}}" class="d-block w-100" alt="...">
-                            </div>
-<!--                            <div class="carousel-item" >-->
-<!--                                <img src="{{produttore.image5}}" class="d-block w-100" alt="...">-->
-<!--                            </div>-->
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            <div class="col-6">
+                <label for="emailPrivata" class="form-label">Email Personale</label>
+                <input
+                        type="text"
+                        id="emailPrivata"
+                        class="form-control"
+                        [ngModel]="produttore.emailPrivata"
 
+                        name="emailPrivata"
+                        email
+                        placeholder="emailPrivata"
+                        #emailPrivata="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="nomeAzienda" class="form-label">Nome Azienda</label>
+                <input
+                        type="text"
+                        id="nomeAzienda"
+                        class="form-control"
+                        [ngModel]="produttore.nomeAzienda"
+
+                        name="nomeAzienda"
+                        placeholder="nomeAzienda"
+                        #nomeAzienda="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="ragioneSociale" class="form-label">Ragione Sociale</label>
+                <input
+                        type="text"
+                        id="ragioneSociale"
+                        class="form-control"
+                        [ngModel]="produttore.ragioneSociale"
+
+                        name="ragioneSociale"
+                        placeholder="ragioneSociale"
+                        #ragioneSociale="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="numeroAzienda" class="form-label">Telefono Aziendale</label>
+                <input
+                        type="text"
+                        id="numeroAzienda"
+                        class="form-control"
+                        [ngModel]="produttore.numeroAzienda"
+
+                        name="numeroAzienda"
+                        placeholder="numeroAzienda"
+                        #numeroAzienda="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="emailAzienda" class="form-label">Email Aziendale</label>
+                <input
+                        type="text"
+                        id="emailAzienda"
+                        class="form-control"
+                        [ngModel]="produttore.emailAzienda"
+
+                        name="emailAzienda"
+                        email
+                        placeholder="emailAzienda"
+                        #emailAzienda="ngModel">
+            </div>
+            <div class="col-12">
+                <label for="indirizzo" class="form-label">Indirizzo dell'Azienda</label>
+                <input
+                        type="text"
+                        id="indirizzo"
+                        class="form-control"
+                        [ngModel]="produttore.indirizzo"
+
+                        name="indirizzo"
+                        placeholder="indirizzo"
+                        #indirizzo="ngModel">
+            </div>
+            <div class="col-md-4">
+                <label for="comune" class="form-label">Comune</label>
+                <input
+                        type="text"
+                        id="comune"
+                        class="form-control"
+                        [ngModel]="produttore.comune"
+                        name="comune"
+                        placeholder="comune"
+                        #comune="ngModel">
+            </div>
+            <div class="col-md-4">
+                <label for="provincia" class="form-label">provincia</label>
+                <input
+                        type="text"
+                        id="provincia"
+                        class="form-control"
+                        [ngModel]="produttore.provincia"
+                        name="provincia"
+                        placeholder="provincia"
+                        #provincia="ngModel">
+            </div>
+            <div class="col-md-3">
+                <label for="cap" class="form-label">CAP</label>
+                <input
+                        type="text"
+                        id="cap"
+                        class="form-control"
+                        [ngModel]="produttore.cap"
+                        name="cap"
+                        value="cap"
+                        #cap="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="password" class="form-label">Password</label>
+                <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        [ngModel]="produttore.password"
+                        name="password"
+                        placeholder="password"
+                        #password="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="descrizioneBreve" class="form-label">descrizioneBreve</label>
+                <input
+                        type="descrizioneBreve"
+                        id="descrizioneBreve"
+                        class="form-control"
+                        [ngModel]="produttore.descrizioneBreve"
+                        name="descrizioneBreve"
+                        placeholder="descrizioneBreve"
+                        #descrizioneBreve="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="descrizioneLunga" class="form-label">descrizioneLunga</label>
+                <input
+                        type="descrizioneLunga"
+                        id="descrizioneLunga"
+                        class="form-control"
+                        [ngModel]="produttore.descrizioneLunga"
+                        name="descrizioneLunga"
+                        placeholder="descrizioneLunga"
+                        #descrizioneLunga="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="linkFacebook" class="form-label">linkFacebook</label>
+                <input
+                        type="linkFacebook"
+                        id="linkFacebook"
+                        class="form-control"
+                        [ngModel]="produttore.linkFacebook"
+                        name="linkFacebook"
+                        placeholder="linkFacebook"
+                        #linkFacebook="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="linkInstagram" class="form-label">linkInstagram</label>
+                <input
+                        type="linkInstagram"
+                        id="linkInstagram"
+                        class="form-control"
+                        [ngModel]="produttore.linkInstagram"
+                        name="linkInstagram"
+                        placeholder="linkInstagram"
+                        #linkInstagram="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="linkWebsite" class="form-label">linkWebsite</label>
+                <input
+                        type="linkWebsite"
+                        id="linkWebsite"
+                        class="form-control"
+                        [ngModel]="produttore.linkWebsite"
+                        name="linkWebsite"
+                        placeholder="linkWebsite"
+                        #linkWebsite="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="linkTicToc" class="form-label">linkTicToc</label>
+                <input
+                        type="linkTicToc"
+                        id="linkTicToc"
+                        class="form-control"
+                        [ngModel]="produttore.linkTicToc"
+                        name="linkTicToc"
+                        placeholder="linkTicToc"
+                        #linkTicToc="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="tipoProdotto" class="form-label">tipoProdotto</label>
+                <input
+                        type="tipoProdotto"
+                        id="tipoProdotto"
+                        class="form-control"
+                        [ngModel]="produttore.tipoProdotto"
+                        name="tipoProdotto"
+                        placeholder="tipoProdotto"
+                        #tipoProdotto="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="tesseramentoAttivo" class="form-label">tesseramentoAttivo </label>
+                <input
+                        type="text"
+                        id="tesseramentoAttivo"
+                        class="form-control"
+                        [ngModel]="produttore.tesseramentoAttivo"
+                        name="tesseramentoAttivo"
+                        placeholder="tesseramentoAttivo"
+                        #tesseramentoAttivo="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="partitaIva" class="form-label">partitaIva </label>
+                <input
+                        type="text"
+                        id="partitaIva"
+                        class="form-control"
+                        [ngModel]="produttore.partitaIva"
+                        name="partitaIva"
+                        placeholder="partitaIva"
+                        #partitaIva="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="nomeProduttore" class="form-label">nomeProduttore </label>
+                <input
+                        type="text"
+                        id="nomeProduttore"
+                        class="form-control"
+                        [ngModel]="produttore.nomeProduttore"
+                        name="nomeProduttore"
+                        placeholder="nomeProduttore"
+                        #nomeProduttore="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="linkYoutube" class="form-label">linkYoutube </label>
+                <input
+                        type="text"
+                        id="linkYoutube"
+                        class="form-control"
+                        [ngModel]="produttore.linkYoutube"
+                        name="linkYoutube"
+                        placeholder="linkYoutube"
+                        #linkYoutube="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="image5" class="form-label">image5 </label>
+                <input
+                        type="text"
+                        id="image5"
+                        class="form-control"
+                        [ngModel]="produttore.image5"
+                        name="image5"
+                        placeholder="image5"
+                        #image5="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="image4" class="form-label">image4 </label>
+                <input
+                        type="text"
+                        id="image4"
+                        class="form-control"
+                        [ngModel]="produttore.image4"
+                        name="image4"
+                        placeholder="image4"
+                        #image4="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="image3" class="form-label">image3 </label>
+                <input
+                        type="text"
+                        id="image3"
+                        class="form-control"
+                        [ngModel]="produttore.image3"
+                        name="image3"
+                        placeholder="image3"
+                        #image3="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="image2" class="form-label">image2 </label>
+                <input
+                        type="text"
+                        id="image2"
+                        class="form-control"
+                        [ngModel]="produttore.image2"
+                        name="image2"
+                        placeholder="image2"
+                        #image2="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="image1" class="form-label">image1 </label>
+                <input
+                        type="text"
+                        id="image1"
+                        class="form-control"
+                        [ngModel]="produttore.image1"
+                        name="image1"
+                        placeholder="image1"
+                        #image1="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="cognomeProduttore" class="form-label">cognomeProduttore </label>
+                <input
+                        type="text"
+                        id="cognomeProduttore"
+                        class="form-control"
+                        [ngModel]="produttore.cognomeProduttore"
+                        name="cognomeProduttore"
+                        placeholder="cognomeProduttore"
+                        #cognomeProduttore="ngModel">
+            </div>
+            <div class="col-6">
+                <label for="codiceFiscale" class="form-label">codiceFiscale </label>
+                <input
+                        type="text"
+                        id="codiceFiscale"
+                        class="form-control"
+                        [ngModel]="produttore.codiceFiscale"
+                        name="codiceFiscale"
+                        placeholder="codiceFiscale"
+                        #codiceFiscale="ngModel">
+            </div>
+
+            <div class="col-6">
+                <label for="id" class="form-label">id </label>
+                <input
+                        type="text"
+                        id="id"
+                        class="form-control"
+                        [ngModel]="produttore.id"
+                        name="id"
+                        placeholder="id"
+                        #id="ngModel">
+            </div>
+
+        </div>
+        <hr class="my-4">
+        <button class="w-100 btn btn-warning btn-lg" type="submit">Edit</button>
+    </form>
+</div>
 <app-footer></app-footer>

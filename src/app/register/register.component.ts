@@ -36,9 +36,8 @@ export class RegisterComponent implements OnInit {
 
     constructor(
         private service: AziendaRestAdapterService,
-    private router: Router
-
-) {
+        private router: Router
+    ) {
     }
 
     ngOnInit(): void {
@@ -70,7 +69,7 @@ export class RegisterComponent implements OnInit {
         });
         console.log('produttore')
         console.log(this.produttore.id)
-        if(this.produttore.id){
+        if (this.produttore.id) {
             this.router.navigate(['/login']);
 
         }
@@ -101,14 +100,14 @@ export class RegisterComponent implements OnInit {
         });
         console.log('produttore')
         console.log(this.produttore.id)
-        if(this.produttore.id){
+        if (this.produttore.id) {
             this.router.navigate(['/login']);
 
         }
     }
 
     createRemote(): Observable<AziendaDTO> {
-        switch(this.registerForm.value.produttore.provincia) {
+        switch (this.registerForm.value.produttore.provincia) {
             case "Ancona": {
                 this.registerForm.value.produttore.provincia = 'AN';
                 break;

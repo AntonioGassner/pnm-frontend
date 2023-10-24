@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LoginComponent} from "../../login/login.component";
 
 @Component({
@@ -6,19 +6,19 @@ import {LoginComponent} from "../../login/login.component";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent{
-  log: boolean
-
+export class NavbarComponent implements OnInit {
+  @Input()login: any
 
   constructor() { }
 
-
-  Logout() {
-    if (this.log){
-      this.log = false;
-    }else {
-      this.log = true;
-    }
+  ngOnInit(): void {
 
   }
+
+
+  Logout() {
+      this.login = false;
+    }
+
+
 }

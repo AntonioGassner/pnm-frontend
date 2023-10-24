@@ -12,10 +12,10 @@
             </div>
         </div>
         <form class="d-flex" role="login" (ngSubmit)="Logout()" >
-            <button   *ngIf="!this.log" class="btn btn-outline-secondary" type="submit" routerLink="/register">Register</button>
-            <button   *ngIf="!this.log" class="btn btn-warning" type="submit" routerLink="/login">Login</button>
-            <button   *ngIf="this.log" class="btn btn-outline-secondary" type="submit" routerLink="/dashboard">Profilo</button>
-            <button   *ngIf="this.log" class="btn btn-warning" type="submit"  routerLink="/logout">Logout</button>
+            <button   *ngIf="!this.login" class="btn btn-outline-secondary" type="submit" routerLink="/register">Register</button>
+            <button   *ngIf="!this.login" class="btn btn-warning" type="submit" routerLink="/login">Login</button>
+            <button   *ngIf="this.login" class="btn btn-outline-secondary" type="submit" routerLink="/dashboard">Profilo</button>
+            <button   *ngIf="this.login" class="btn btn-warning" type="submit"  routerLink="/logout">Logout</button>
         </form>
     </div>
 </nav>
